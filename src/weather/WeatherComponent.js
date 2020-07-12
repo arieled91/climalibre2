@@ -6,15 +6,15 @@ import Typography from "@material-ui/core/Typography";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Grid from "@material-ui/core/Grid";
-import cloudyImg from "../assets/cloudy-sky.jpg";
-import drizzleImg from "../assets/drizzle.jpg";
-import fogImg from "../assets/fog.jpg";
-import rainyImg from "../assets/rainy-day.jpg";
-import snowImg from "../assets/snow.jpg";
-import stormImg from "../assets/storm.jpg";
-import sunnyImg from "../assets/sunny.jpg";
-import defaultImg from "../assets/default.jpg";
-import coveredImg from "../assets/covered.jpg";
+import cloudyImg from "./../assets/cloudy-sky.jpg";
+import drizzleImg from "./../assets/drizzle.jpg";
+import fogImg from "./../assets/fog.jpg";
+import rainyImg from "./../assets/rainy-day.jpg";
+import snowImg from "./../assets/snow.jpg";
+import stormImg from "./../assets/storm.jpg";
+import sunnyImg from ".././assets/sunny.jpg";
+import defaultImg from "./../assets/default.jpg";
+import coveredImg from "./../assets/covered.jpg";
 
 const WeatherComponent = (props) => {
     const weather = props.weather;
@@ -90,7 +90,7 @@ const WeatherComponent = (props) => {
             height: '100%',
             align: 'center',
             textAlign: 'center',
-            backgroundImage: `url(${image})`,
+            backgroundImage: image ? `url(${image})` : '',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
