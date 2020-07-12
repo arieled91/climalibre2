@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a289362b489de33716292d0e8f69af74",
+    "revision": "2cc8a76521b50e7ff847c70211a92e59",
     "url": "/climalibre2/index.html"
   },
   {
