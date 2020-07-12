@@ -19,7 +19,7 @@ import coveredImg from "./../assets/covered.jpg";
 const WeatherComponent = (props) => {
     const weather = props.weather;
 
-    const [image, setImage] = React.useState(null);
+    const [image, setImage] = React.useState('');
 
     React.useEffect(() => {
         setImage(calculateImage());
