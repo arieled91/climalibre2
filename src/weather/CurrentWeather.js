@@ -20,17 +20,12 @@ const CurrentWeather = (props) => {
     }
 
     const populate = () => {
-        let geoLat = 0;
-        let geoLon = 0;
-
         if(!!navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 //ON_SUCCESS
-                (position) => {
-                    geoLat = position.coords.latitude;
-                    geoLon = position.coords.longitude;
-                    getCurrentWeather(geoLat, geoLon);
-                });
+                (position) =>
+                    getCurrentWeather(position.coords.latitude, position.coords.longitude)
+                )
         }
         else {
             console.log("Geolocation is not available");
@@ -39,7 +34,7 @@ const CurrentWeather = (props) => {
 
     React.useEffect(() => {
         handlePermission();
-        populate();
+        // populate();
     }, []);
 
 
