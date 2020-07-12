@@ -70,7 +70,7 @@ const CurrentWeather = (props) => {
     }
 
     return (
-        <div onClick={populate} style={{height: '100%', width: '100%'}}>
+        <div style={{height: '100%', width: '100%'}}>
             {error && <Alert severity="error">{error}</Alert>}
             {permissionInfo && !error && <Alert severity="info"><strong>{local.important}</strong>{" "+local.geolocationRequest}</Alert>}
             <WeatherComponent weather={weather}/>

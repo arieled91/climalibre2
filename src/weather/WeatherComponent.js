@@ -15,6 +15,7 @@ import stormImg from "./../assets/storm.jpg";
 import sunnyImg from ".././assets/sunny.jpg";
 import defaultImg from "./../assets/default.jpg";
 import coveredImg from "./../assets/covered.jpg";
+import Box from "@material-ui/core/Box";
 
 const WeatherComponent = (props) => {
     const weather = props.weather;
@@ -95,14 +96,18 @@ const WeatherComponent = (props) => {
             backgroundPosition: 'center',
             backgroundSize: 'cover',
         },
+        fullHeight: {
+            height: '100%'
+        }
     }
 
     return (
         <div style={styles.main}>
             {weather ? <Card style={styles.main}>
-                <CardActionArea style={{height: '100%'}}>
-                    <CardContent>
-                        <Grid container>
+                {/*<Box style={{height: '100%'}}>*/}
+                    <CardContent style={styles.fullHeight}>
+                        <Grid container direction="row" justify="center" alignItems="center"
+                              style={styles.fullHeight}>
                             <Grid item xs={1} sm={3} md={4} xl={5}/>
                             <Grid item xs={10} sm={6} md={4} xl={2}>
                                 <Grid container direction="column" justify="center" alignItems="center" style={styles.component}>
@@ -151,7 +156,7 @@ const WeatherComponent = (props) => {
                         </Grid>
 
                     </CardContent>
-                </CardActionArea>
+                {/*</Box>*/}
             </Card> : <LinearProgress />}
         </div>
     )
