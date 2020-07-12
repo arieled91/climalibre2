@@ -11,30 +11,13 @@ const CurrentWeather = (props) => {
     const [error, setError] = React.useState(null);
     const [permissionInfo, setPermissionInfo] = React.useState(false);
 
-    React.useEffect(() => {
-        // handlePermission();
-        // populate();
-        setWeather(
-            {
-                name: 'name',
-                weather : [{
-                    id: 0,
-                    icon : '',
-                    description : 'cloud'
-                }],
-                main: {
-                    temp: 0,
-                    humidity : 0,
-                    temp_min : 0,
-                    temp_max : 0
-                },
-                wind:{
-                    speed : 0,
-                    deg: 0
-                }
-            },
-        )
-    }, []);
+    const handlePermission = () => {
+        if(!navigator.geolocation) console.log("Geolocation is not available");
+        navigator.permissions.query({name:'geolocation'}).then(result => {
+            handlePermissionResult(result);
+            result.onchange = () => handlePermissionResult(result);
+        });
+    }
 
     const populate = () => {
         let geoLat = 0;
@@ -54,6 +37,13 @@ const CurrentWeather = (props) => {
         }
     }
 
+    React.useEffect(() => {
+        handlePermission();
+        populate();
+    }, []);
+
+
+
     const getCurrentWeather = (lat, lon) => {
         Api.getWeather(lat, lon, local.getLanguage())
             .then((weather) => setWeather(weather))
@@ -63,13 +53,7 @@ const CurrentWeather = (props) => {
             });
     }
 
-    const handlePermission = () => {
-        if(!navigator.geolocation) console.log("Geolocation is not available");
-        navigator.permissions.query({name:'geolocation'}).then(result => {
-            handlePermissionResult(result);
-            result.onchange = () => handlePermissionResult(result);
-        });
-    }
+
 
     const handlePermissionResult = (result) => {
         switch (result.state) {

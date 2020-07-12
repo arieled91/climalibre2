@@ -19,14 +19,14 @@ import coveredImg from "../assets/covered.jpg";
 const WeatherComponent = (props) => {
     const weather = props.weather;
 
-    const [image, setImage] = React.useState(defaultImg);
+    const [image, setImage] = React.useState(null);
 
     React.useEffect(() => {
         setImage(calculateImage());
     },[props.weather])
 
     const calculateImage = () => {
-        if(!weather) return defaultImg;
+        if(!weather) return null;
         const id = weather.weather[0].id;
         const code = (''+id)[0];
 
