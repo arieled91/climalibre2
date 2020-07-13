@@ -42,17 +42,22 @@ const Weather = (props) => {
 
     React.useEffect(() => {
         handlePermission();
-        populateByLocation();
+        populate();
     }, []);
 
     React.useEffect(() => {
-        if(permission === Permission.DENIED || permission === Permission.PROMPT){
-            setError(null);
-            populateByCity();
-        }
+        populate();
     }, [permission]);
 
+    const populate = () => {
+        setError(null);
 
+        populateByLocation();
+
+        if(permission === Permission.DENIED || permission === Permission.PROMPT || !navigator.geolocation){
+            populateByCity();
+        }
+    }
 
     const getWeatherByCoords = (lat, lon) => {
         Api.getWeatherByCoords(lat, lon, message.getLanguage())
@@ -77,7 +82,7 @@ const Weather = (props) => {
             {error && <Alert severity="error">{error}</Alert>}
             {!weather && permission === Permission.PROMPT && <Alert severity="info"><strong>{message.important}</strong>{" "+message.geolocationRequest}</Alert>}
             {weather ? <WeatherComponent
-                    clicked={populateByLocation}
+                    clicked={populate}
                     weather={weather}/> :
                 permission !== Permission.DENIED && <LinearProgress />}
         </div>
