@@ -25,32 +25,46 @@ const Weather = (props) => {
         });
     }
 
-    const populate = () => {
+    const populateByLocation = () => {
         if(!!(navigator.geolocation)) {
-            navigator.geolocation.getCurrentPosition(
-                (position) =>
-                    getCurrentWeather(position.coords.latitude, position.coords.longitude)
-                )
-        } else {
-            setError(message.geolocationDisabled)
-            console.log("Geolocation is not available");
+            navigator.geolocation.getCurrentPosition((position) =>
+                getWeatherByCoords(position.coords.latitude, position.coords.longitude))
         }
+    }
+
+    const populateByCity = () => {
+        Api.getIpLocation().then(location => {
+            getWeatherByCity(location.city, location.country_code)
+        }).catch(e => {
+            if(permission !== Permission.PROMPT) setError(message.geolocationDisabled)
+        });
     }
 
     React.useEffect(() => {
         handlePermission();
-        populate();
+        populateByLocation();
     }, []);
 
     React.useEffect(() => {
-        if(permission === Permission.DENIED) setError(message.geolocationRequest);
-        if(permission === Permission.PROMPT) setError(null);
+        if(permission === Permission.DENIED || permission === Permission.PROMPT){
+            setError(null);
+            populateByCity();
+        }
     }, [permission]);
 
 
 
-    const getCurrentWeather = (lat, lon) => {
-        Api.getWeather(lat, lon, message.getLanguage())
+    const getWeatherByCoords = (lat, lon) => {
+        Api.getWeatherByCoords(lat, lon, message.getLanguage())
+            .then((weather) => setWeather(weather))
+            .catch((error) => {
+                setError(error.message);
+                console.log(error);
+            });
+    }
+
+    const getWeatherByCity = (city, countryCode) => {
+        Api.getWeatherByCity(city, countryCode, message.getLanguage())
             .then((weather) => setWeather(weather))
             .catch((error) => {
                 setError(error.message);
@@ -63,7 +77,7 @@ const Weather = (props) => {
             {error && <Alert severity="error">{error}</Alert>}
             {!weather && permission === Permission.PROMPT && <Alert severity="info"><strong>{message.important}</strong>{" "+message.geolocationRequest}</Alert>}
             {weather ? <WeatherComponent
-                    clicked={populate}
+                    clicked={populateByLocation}
                     weather={weather}/> :
                 permission !== Permission.DENIED && <LinearProgress />}
         </div>

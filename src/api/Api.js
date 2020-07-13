@@ -2,19 +2,30 @@ import Axios from 'axios';
 
 export default class Api {
 
-	static WEATHER = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather";
+	static OWM_API_ID = "bb08096af050f2bd4c2b401249b14e27";
+	static WEATHER = "https://api.openweathermap.org/data/2.5/weather";
+	static IP_LOCATION = "https://ipapi.co/json"
 
-	static HEADERS = {
-		'Access-Control-Allow-Origin':'*',
-		'Access-Control-Allow-Credential':'true',
-		'Access-Control-Allow-Methods': 'GET'
+	static async getIpLocation() {
+		return await Axios.get(this.IP_LOCATION)
+			.then(response => response.data);
 	}
 
-	static async getWeather(latitude, longitude, language) {
+	static async getWeatherByCity(zipCode, countryCode, language) {
 		return await Axios.get(this.WEATHER, {
-			headers: this.HEADERS,
 			params: {
-				appid: "bb08096af050f2bd4c2b401249b14e27",
+				appid: this.OWM_API_ID,
+				units: "metric",
+				q: `${zipCode},${countryCode}`,
+				lang: language
+			}
+		}).then(response => response.data);
+	}
+
+	static async getWeatherByCoords(latitude, longitude, language) {
+		return await Axios.get(this.WEATHER, {
+			params: {
+				appid: this.OWM_API_ID,
 				units: "metric",
 				lat: latitude,
 				lon: longitude,
@@ -22,28 +33,4 @@ export default class Api {
 			}
 		}).then(response => response.data);
 	}
-
-
-  static instance(latitude, longitude,language) {
-
-	// const URL_PROD_OW = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather";
-	const URL_PROD_OW = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather";
-
-    return Axios.create({
-      baseURL: URL_PROD_OW,
-      // timeout: 5000
-			headers: {
-				'Access-Control-Allow-Origin':'*',
-				'Access-Control-Allow-Credential':'true',
-				'Access-Control-Allow-Methods': 'GET'
-      },
-			params:{
-				appid: "bb08096af050f2bd4c2b401249b14e27",
-				units: "metric",
-				lat: latitude,
-				lon: longitude,
-				lang: language
-			}
-    });
-  }
 }
