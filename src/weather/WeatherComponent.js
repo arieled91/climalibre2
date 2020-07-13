@@ -108,6 +108,7 @@ const WeatherComponent = (props) => {
                           style={styles.fullHeight}>
                         <Grid item xs={1} sm={3} md={4} xl={5}/>
                         <Grid item xs={10} sm={6} md={4} xl={2}>
+                            <CardActionArea onClick={props.clicked}>
                             <Grid container direction="column" justify="center" alignItems="center" style={styles.component}>
                                 <Grid item>
                                     <Grid container spacing={2}>
@@ -149,6 +150,7 @@ const WeatherComponent = (props) => {
                                     <Typography color="textSecondary" gutterBottom>{weather.name}</Typography>
                                 </Grid>
                             </Grid>
+                            </CardActionArea>
                         </Grid>
                         <Grid item xs={1} sm={3} md={4} xl={5}/>
                     </Grid>

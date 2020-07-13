@@ -62,7 +62,9 @@ const Weather = (props) => {
         <div style={{height: '100%', width: '100%'}}>
             {error && <Alert severity="error">{error}</Alert>}
             {!weather && permission === Permission.PROMPT && <Alert severity="info"><strong>{message.important}</strong>{" "+message.geolocationRequest}</Alert>}
-            {weather ? <WeatherComponent weather={weather}/> :
+            {weather ? <WeatherComponent
+                    clicked={populate}
+                    weather={weather}/> :
                 permission !== Permission.DENIED && <LinearProgress />}
         </div>
     )
