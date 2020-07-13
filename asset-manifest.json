@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/climalibre2/static/css/main.ba74bda1.chunk.css",
-    "main.js": "/climalibre2/static/js/main.053d3f36.chunk.js",
-    "main.js.map": "/climalibre2/static/js/main.053d3f36.chunk.js.map",
+    "main.js": "/climalibre2/static/js/main.80e88e68.chunk.js",
+    "main.js.map": "/climalibre2/static/js/main.80e88e68.chunk.js.map",
     "runtime-main.js": "/climalibre2/static/js/runtime-main.4cc933bf.js",
     "runtime-main.js.map": "/climalibre2/static/js/runtime-main.4cc933bf.js.map",
     "static/css/2.d2701ec3.chunk.css": "/climalibre2/static/css/2.d2701ec3.chunk.css",
     "static/js/2.00f58210.chunk.js": "/climalibre2/static/js/2.00f58210.chunk.js",
     "static/js/2.00f58210.chunk.js.map": "/climalibre2/static/js/2.00f58210.chunk.js.map",
     "index.html": "/climalibre2/index.html",
-    "precache-manifest.7f22fc86d19dbe0f78698244ec9eaaae.js": "/climalibre2/precache-manifest.7f22fc86d19dbe0f78698244ec9eaaae.js",
+    "precache-manifest.2e3d2cc5c740b4dc5421b650d85a38e2.js": "/climalibre2/precache-manifest.2e3d2cc5c740b4dc5421b650d85a38e2.js",
     "service-worker.js": "/climalibre2/service-worker.js",
     "static/css/2.d2701ec3.chunk.css.map": "/climalibre2/static/css/2.d2701ec3.chunk.css.map",
     "static/css/main.ba74bda1.chunk.css.map": "/climalibre2/static/css/main.ba74bda1.chunk.css.map",
@@ -30,6 +30,6 @@
     "static/css/2.d2701ec3.chunk.css",
     "static/js/2.00f58210.chunk.js",
     "static/css/main.ba74bda1.chunk.css",
-    "static/js/main.053d3f36.chunk.js"
+    "static/js/main.80e88e68.chunk.js"
   ]
 }
