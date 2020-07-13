@@ -1,5 +1,5 @@
 import React from 'react'
-import local from "../localization/weather/CurrentWeatherLocal";
+import message from "../localization/weather/CurrentWeatherLocal";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
@@ -15,7 +15,6 @@ import stormImg from "./../assets/storm.jpg";
 import sunnyImg from ".././assets/sunny.jpg";
 import defaultImg from "./../assets/default.jpg";
 import coveredImg from "./../assets/covered.jpg";
-import Box from "@material-ui/core/Box";
 
 const WeatherComponent = (props) => {
     const weather = props.weather;
@@ -48,15 +47,15 @@ const WeatherComponent = (props) => {
 
     const degreesToCardinal = (deg) => {
         const cardinals = [
-            local.north,
-            local.northEast,
-            local.east,
-            local.southEast,
-            local.south,
-            local.southWest,
-            local.west,
-            local.northwest,
-            local.north
+            message.north,
+            message.northEast,
+            message.east,
+            message.southEast,
+            message.south,
+            message.southWest,
+            message.west,
+            message.northwest,
+            message.north
         ];
 
         return cardinals[parseFloat((deg % 360) / 45).toFixed(0)];
@@ -103,61 +102,58 @@ const WeatherComponent = (props) => {
 
     return (
         <div style={styles.main}>
-            {weather ? <Card style={styles.main}>
-                {/*<Box style={{height: '100%'}}>*/}
-                    <CardContent style={styles.fullHeight}>
-                        <Grid container direction="row" justify="center" alignItems="center"
-                              style={styles.fullHeight}>
-                            <Grid item xs={1} sm={3} md={4} xl={5}/>
-                            <Grid item xs={10} sm={6} md={4} xl={2}>
-                                <Grid container direction="column" justify="center" alignItems="center" style={styles.component}>
-                                    <Grid item>
-                                        <Grid container spacing={2}>
-                                            <Grid item>
-                                                <Typography variant='h4' style={styles.temp}>
-                                                    <img alt="" src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}/>
-                                                    {(parseFloat(weather.main.temp).toFixed(0))+"°C"}
-                                                </Typography>
-                                            </Grid>
-                                            <Grid item>
-                                                <Grid container direction="column" style={{marginTop: '10px'}}>
-                                                    <Grid item style={{fontSize: '16pt'}}>
-                                                        {(parseFloat(weather.main.temp_max).toFixed(0))+'°'}
-                                                    </Grid>
-                                                    <Grid item style={{fontSize: '16pt'}}>
-                                                        {(parseFloat(weather.main.temp_min).toFixed(0))+'°'}
-                                                    </Grid>
+            <Card style={styles.main}>
+                <CardContent style={styles.fullHeight}>
+                    <Grid container direction="row" justify="center" alignItems="center"
+                          style={styles.fullHeight}>
+                        <Grid item xs={1} sm={3} md={4} xl={5}/>
+                        <Grid item xs={10} sm={6} md={4} xl={2}>
+                            <Grid container direction="column" justify="center" alignItems="center" style={styles.component}>
+                                <Grid item>
+                                    <Grid container spacing={2}>
+                                        <Grid item>
+                                            <Typography variant='h4' style={styles.temp}>
+                                                <img alt="" src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}/>
+                                                {(parseFloat(weather.main.temp).toFixed(0))+"°C"}
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Grid container direction="column" style={{marginTop: '10px'}}>
+                                                <Grid item style={{fontSize: '16pt'}}>
+                                                    {(parseFloat(weather.main.temp_max).toFixed(0))+'°'}
+                                                </Grid>
+                                                <Grid item style={{fontSize: '16pt'}}>
+                                                    {(parseFloat(weather.main.temp_min).toFixed(0))+'°'}
                                                 </Grid>
                                             </Grid>
                                         </Grid>
                                     </Grid>
+                                </Grid>
 
-                                    <Grid item>
-                                        <Typography variant="h6" gutterBottom style={styles.capitalize}>
-                                            {weather.weather[0].description}
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography variant="body1" gutterBottom>
-                                            {local.humidity}: <strong>{parseFloat(weather.main.humidity).toFixed(0)+"%"}</strong>
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography variant="body1" gutterBottom>
-                                            {local.wind}: <strong>{parseFloat(weather.wind.speed).toFixed(0)+" km/h "+degreesToCardinal(weather.wind.deg)}</strong>
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography color="textSecondary" gutterBottom>{weather.name}</Typography>
-                                    </Grid>
+                                <Grid item>
+                                    <Typography variant="h6" gutterBottom style={styles.capitalize}>
+                                        {weather.weather[0].description}
+                                    </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography variant="body1" gutterBottom>
+                                        {message.humidity}: <strong>{parseFloat(weather.main.humidity).toFixed(0)+"%"}</strong>
+                                    </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography variant="body1" gutterBottom>
+                                        {message.wind}: <strong>{parseFloat(weather.wind.speed).toFixed(0)+" km/h "+degreesToCardinal(weather.wind.deg)}</strong>
+                                    </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography color="textSecondary" gutterBottom>{weather.name}</Typography>
                                 </Grid>
                             </Grid>
-                            <Grid item xs={1} sm={3} md={4} xl={5}/>
                         </Grid>
-
-                    </CardContent>
-                {/*</Box>*/}
-            </Card> : <LinearProgress />}
+                        <Grid item xs={1} sm={3} md={4} xl={5}/>
+                    </Grid>
+                </CardContent>
+            </Card>
         </div>
     )
 }

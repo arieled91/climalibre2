@@ -1,12 +1,13 @@
 import LocalizedStrings from 'react-localization';
 
-const local = new LocalizedStrings({
+const message = new LocalizedStrings({
   en:{
 		loading : "Loading...",
     humidity:"Humidity",
     wind:"Wind",
     important : "Important!",
-    geolocationRequest : "We need your location to provide you the local weather.",
+    geolocationRequest : "Grant location permission in your device to continue",
+    geolocationDisabled : "Geolocation is disabled in your device",
     //cardinals
     north:"North",
     northEast: "Northeast",
@@ -23,7 +24,8 @@ const local = new LocalizedStrings({
     humidity:"Humedad",
     wind:"Viento",
     important : "¡Importante!",
-    geolocationRequest : "Necesitamos su ubicacion para poder brindarle el clima local.",
+    geolocationRequest : "Para continuar conceda permisos de ubicación.",
+    geolocationDisabled : "La geolocalización se encuentra deshabilitada en su dispositivo",
     //cardinals
     north:"Norte",
     northEast: "Noreste",
@@ -37,4 +39,4 @@ const local = new LocalizedStrings({
   }
 });
 
-export default local
+export default message
