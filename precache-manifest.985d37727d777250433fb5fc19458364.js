@@ -1,35 +1,47 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e89adbf5b757b6d4fb9b0a1489afeaab",
+    "revision": "66753c25460793ad3ea8a399b6f6a35c",
     "url": "/climalibre2/index.html"
   },
   {
-    "revision": "08b66a6d8f0e6208269f",
+    "revision": "5811e76c59d62bf2c09f",
     "url": "/climalibre2/static/css/2.d2701ec3.chunk.css"
   },
   {
-    "revision": "80573246d23a7ea9b239",
+    "revision": "4a49c08ca75abc367d83",
     "url": "/climalibre2/static/css/main.ba74bda1.chunk.css"
   },
   {
-    "revision": "08b66a6d8f0e6208269f",
-    "url": "/climalibre2/static/js/2.00f58210.chunk.js"
+    "revision": "5811e76c59d62bf2c09f",
+    "url": "/climalibre2/static/js/2.80742027.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/climalibre2/static/js/2.00f58210.chunk.js.LICENSE.txt"
+    "url": "/climalibre2/static/js/2.80742027.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "80573246d23a7ea9b239",
-    "url": "/climalibre2/static/js/main.80e88e68.chunk.js"
+    "revision": "4a49c08ca75abc367d83",
+    "url": "/climalibre2/static/js/main.a4478e87.chunk.js"
   },
   {
     "revision": "6dabf8c63beadd26522b",
     "url": "/climalibre2/static/js/runtime-main.4cc933bf.js"
   },
   {
+    "revision": "f323ee0a3bd6f99c0bab7a41fb5a0619",
+    "url": "/climalibre2/static/media/clear-sky-night.f323ee0a.jpg"
+  },
+  {
+    "revision": "84d67e512f91038dc1946d3b969ef45d",
+    "url": "/climalibre2/static/media/cloudy-sky-night.84d67e51.jpg"
+  },
+  {
     "revision": "d56cf3ed60aa4ca6842d8b1a743164e4",
     "url": "/climalibre2/static/media/cloudy-sky.d56cf3ed.jpg"
+  },
+  {
+    "revision": "a51160fdb47518d3d0975a89559b7c13",
+    "url": "/climalibre2/static/media/covered-night.a51160fd.jpg"
   },
   {
     "revision": "99c596e58b135c4d64a840cafe94b857",
@@ -40,8 +52,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/climalibre2/static/media/default.95dc7bcb.jpg"
   },
   {
+    "revision": "0f0533122585126b5754a701005d564b",
+    "url": "/climalibre2/static/media/drizzle-night.0f053312.jpg"
+  },
+  {
     "revision": "c6679dc6fa4b4a1ea74fa2024cba3add",
     "url": "/climalibre2/static/media/drizzle.c6679dc6.jpg"
+  },
+  {
+    "revision": "b721e3afc57cca84601b80d514ae06e9",
+    "url": "/climalibre2/static/media/fog-night.b721e3af.jpg"
   },
   {
     "revision": "cac8ace46fc14e3246ab768d6fb24620",
@@ -50,6 +70,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1e31577d0993e53d674bbc6a236020d3",
     "url": "/climalibre2/static/media/rainy-day.1e31577d.jpg"
+  },
+  {
+    "revision": "26eee4b5c4b382cf63be1a8bac62f754",
+    "url": "/climalibre2/static/media/rainy-night.26eee4b5.jpg"
   },
   {
     "revision": "f8b1df51ba843179fa1cc9b53d58127a",
@@ -146,6 +170,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "bb1e4dc6333675d11ada2e857e7f95d7",
     "url": "/climalibre2/static/media/roboto-latin-900-normal.bb1e4dc6.woff"
+  },
+  {
+    "revision": "acc734b5b2a1b25091d5f29ce4c55a03",
+    "url": "/climalibre2/static/media/snow-night.acc734b5.jpg"
   },
   {
     "revision": "272d8b9de0fe83872ac5c0a271ef7186",

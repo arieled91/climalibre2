@@ -1,26 +1,33 @@
 {
   "files": {
     "main.css": "/climalibre2/static/css/main.ba74bda1.chunk.css",
-    "main.js": "/climalibre2/static/js/main.80e88e68.chunk.js",
-    "main.js.map": "/climalibre2/static/js/main.80e88e68.chunk.js.map",
+    "main.js": "/climalibre2/static/js/main.a4478e87.chunk.js",
+    "main.js.map": "/climalibre2/static/js/main.a4478e87.chunk.js.map",
     "runtime-main.js": "/climalibre2/static/js/runtime-main.4cc933bf.js",
     "runtime-main.js.map": "/climalibre2/static/js/runtime-main.4cc933bf.js.map",
     "static/css/2.d2701ec3.chunk.css": "/climalibre2/static/css/2.d2701ec3.chunk.css",
-    "static/js/2.00f58210.chunk.js": "/climalibre2/static/js/2.00f58210.chunk.js",
-    "static/js/2.00f58210.chunk.js.map": "/climalibre2/static/js/2.00f58210.chunk.js.map",
+    "static/js/2.80742027.chunk.js": "/climalibre2/static/js/2.80742027.chunk.js",
+    "static/js/2.80742027.chunk.js.map": "/climalibre2/static/js/2.80742027.chunk.js.map",
     "index.html": "/climalibre2/index.html",
-    "precache-manifest.2e3d2cc5c740b4dc5421b650d85a38e2.js": "/climalibre2/precache-manifest.2e3d2cc5c740b4dc5421b650d85a38e2.js",
+    "precache-manifest.985d37727d777250433fb5fc19458364.js": "/climalibre2/precache-manifest.985d37727d777250433fb5fc19458364.js",
     "service-worker.js": "/climalibre2/service-worker.js",
     "static/css/2.d2701ec3.chunk.css.map": "/climalibre2/static/css/2.d2701ec3.chunk.css.map",
     "static/css/main.ba74bda1.chunk.css.map": "/climalibre2/static/css/main.ba74bda1.chunk.css.map",
-    "static/js/2.00f58210.chunk.js.LICENSE.txt": "/climalibre2/static/js/2.00f58210.chunk.js.LICENSE.txt",
+    "static/js/2.80742027.chunk.js.LICENSE.txt": "/climalibre2/static/js/2.80742027.chunk.js.LICENSE.txt",
+    "static/media/clear-sky-night.jpg": "/climalibre2/static/media/clear-sky-night.f323ee0a.jpg",
+    "static/media/cloudy-sky-night.jpg": "/climalibre2/static/media/cloudy-sky-night.84d67e51.jpg",
     "static/media/cloudy-sky.jpg": "/climalibre2/static/media/cloudy-sky.d56cf3ed.jpg",
+    "static/media/covered-night.jpg": "/climalibre2/static/media/covered-night.a51160fd.jpg",
     "static/media/covered.jpg": "/climalibre2/static/media/covered.99c596e5.jpg",
     "static/media/default.jpg": "/climalibre2/static/media/default.95dc7bcb.jpg",
+    "static/media/drizzle-night.jpg": "/climalibre2/static/media/drizzle-night.0f053312.jpg",
     "static/media/drizzle.jpg": "/climalibre2/static/media/drizzle.c6679dc6.jpg",
+    "static/media/fog-night.jpg": "/climalibre2/static/media/fog-night.b721e3af.jpg",
     "static/media/fog.jpg": "/climalibre2/static/media/fog.cac8ace4.jpg",
     "static/media/rainy-day.jpg": "/climalibre2/static/media/rainy-day.1e31577d.jpg",
+    "static/media/rainy-night.jpg": "/climalibre2/static/media/rainy-night.26eee4b5.jpg",
     "static/media/index.css": "/climalibre2/static/media/roboto-latin-900-normal.bb1e4dc6.woff",
+    "static/media/snow-night.jpg": "/climalibre2/static/media/snow-night.acc734b5.jpg",
     "static/media/snow.jpg": "/climalibre2/static/media/snow.272d8b9d.jpg",
     "static/media/storm.jpg": "/climalibre2/static/media/storm.a1438dce.jpg",
     "static/media/sunny.jpg": "/climalibre2/static/media/sunny.5f43ef67.jpg"
@@ -28,8 +35,8 @@
   "entrypoints": [
     "static/js/runtime-main.4cc933bf.js",
     "static/css/2.d2701ec3.chunk.css",
-    "static/js/2.00f58210.chunk.js",
+    "static/js/2.80742027.chunk.js",
     "static/css/main.ba74bda1.chunk.css",
-    "static/js/main.80e88e68.chunk.js"
+    "static/js/main.a4478e87.chunk.js"
   ]
 }
