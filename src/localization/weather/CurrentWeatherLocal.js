@@ -2,8 +2,9 @@ import LocalizedStrings from 'react-localization';
 
 const message = new LocalizedStrings({
   en:{
-		loading : "Loading...",
-    humidity:"Humidity",
+    loading : "Loading...",
+    humidity: "Humidity",
+    feelsLike: "Feels Like",
     wind:"Wind",
     important : "Important!",
     geolocationRequest : "Grant location permission in your device to continue",
@@ -22,6 +23,7 @@ const message = new LocalizedStrings({
   es: {
   	loading : "Cargando...",
     humidity:"Humedad",
+    feelsLike:"Sensación",
     wind:"Viento",
     important : "¡Importante!",
     geolocationRequest : "Para continuar conceda permisos de ubicación.",
