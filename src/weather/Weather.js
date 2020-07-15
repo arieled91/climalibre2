@@ -42,11 +42,10 @@ const Weather = (props) => {
 
     React.useEffect(() => {
         handlePermission();
-        populate();
     }, []);
 
     React.useEffect(() => {
-        populate();
+        if(permission!=='') populate();
     }, [permission]);
 
     const populate = () => {

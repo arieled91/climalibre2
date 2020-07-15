@@ -5,7 +5,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Grid from "@material-ui/core/Grid";
-import moment from 'moment';
 
 import cloudyImg from "./../assets/cloudy-sky.jpg";
 import drizzleImg from "./../assets/drizzle.jpg";
@@ -31,23 +30,18 @@ const WeatherComponent = (props) => {
 
     React.useEffect(() => {
         setImage(calculateImage());
-    },[props.weather])
-
-    const minutesOfDay = (m) => {
-        return m.minutes() + m.hours() * 60;
-    }
+    },[JSON.stringify(props.weather)])
 
     const isDayTime = () => {
-        const sunrise = minutesOfDay(moment(weather.sys.sunrise));
-        const sunset = minutesOfDay(moment(weather.sys.sunset));
-        const now = minutesOfDay(moment());
-
+        const sunrise = weather.sys.sunrise*1000;
+        const sunset = weather.sys.sunset*1000;
+        const now = new Date().getTime();
+        console.log(now > sunrise && now < sunset)
         return now > sunrise && now < sunset;
     }
 
     const calculateImage = () => {
         if(!weather) return null;
-        console.log(weather);
         const id = weather.weather[0].id;
         const code = (''+id)[0];
         const day = isDayTime()
