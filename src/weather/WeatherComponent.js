@@ -45,18 +45,14 @@ const WeatherComponent = (props) => {
     const [image, setImage] = React.useState({min: '', full: ''});
     const [imageLoaded, setImageLoaded] = React.useState(false);
 
-    React.useEffect(() => {
-        setImage(calculateImage());
-    },[JSON.stringify(props.weather)])
-
-    const isDayTime = () => {
+    const isDayTime = React.useCallback(() => {
         const sunrise = weather.sys.sunrise*1000;
         const sunset = weather.sys.sunset*1000;
         const now = new Date().getTime();
         return now > sunrise && now < sunset;
-    }
+    },[weather])
 
-    const calculateImage = () => {
+    const calculateImage = React.useCallback(() => {
         if(!weather) return null;
         const id = weather.weather[0].id;
         const code = (''+id)[0];
@@ -75,7 +71,12 @@ const WeatherComponent = (props) => {
             default: return {full: cloudyImg, min:cloudyImgMin};
         }
 
-    }
+    },[isDayTime, weather])
+
+    React.useEffect(() => {
+        setImage(calculateImage());
+    },[calculateImage, props.weather])
+
 
     const degreesToCardinal = (deg) => {
         const cardinals = [
