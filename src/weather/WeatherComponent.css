@@ -14,3 +14,8 @@
     /*transform: scale(1.1);*/
     transition: visibility 0ms ease 400ms;
 }
+
+div {
+    color: #ffffff;
+    text-shadow: 0 2px 3px rgba(0,0,0,0.8), 0 4px 13px rgba(0,0,0,0.2), 0 8px 10px rgba(0,0,0,0.2);
+}

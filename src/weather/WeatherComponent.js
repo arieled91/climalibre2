@@ -37,8 +37,7 @@ import snowNightImg from "./../assets/snow-night.jpg";
 import coveredNightImg from "./../assets/covered-night.jpg";
 import rainyNightImg from "./../assets/rainy-night.jpg";
 
-import './Image.css';
-import Paper from "@material-ui/core/Paper";
+import './WeatherComponent.css';
 
 const WeatherComponent = (props) => {
     const weather = props.weather;
@@ -150,14 +149,14 @@ const WeatherComponent = (props) => {
             fontWeight: 'bold'
         },
         component: {
-            background: 'rgba(245,245,245, .75)',
-            padding: '30px',
+            // background: 'rgba(245,245,245, .75)',
+            padding: '10px',
             width: '250px',
         },
         subComponent: {
-            background: 'rgba(245,245,245, .75)',
-            marginTop: '5px',
-            padding: '0 30px 20px 30px',
+            // background: 'rgba(245,245,245, .75)',
+            // marginTop: '5px',
+            paddingBottom: '10px',
             width: '250px',
             overflowX: 'visible'
         },
@@ -185,7 +184,10 @@ const WeatherComponent = (props) => {
                         <Grid>
                             <CardActionArea onClick={props.clicked}>
                                 <Grid container direction="column" justify="center" alignItems="center">
-                                    <Paper style={styles.component}>
+                                    <div style={styles.component}>
+                                        <Grid item>
+                                            <Typography variant="caption" style={{fontSize: '7pt', color: 'rgba(255,255,255,0.69)'}}>{weather.name}</Typography>
+                                        </Grid>
                                         <Grid item>
                                             <Typography variant="h5" gutterBottom style={{...styles.capitalize, marginBottom: '-5px'}}>
                                                 {weather.weather[0].description}
@@ -227,11 +229,8 @@ const WeatherComponent = (props) => {
                                                 {message.wind}: <strong>{fix(weather.wind.speed) + " km/h " + degreesToCardinal(weather.wind.deg)}</strong>
                                             </Typography>
                                         </Grid>
-                                        <Grid item>
-                                            <Typography variant="caption" color="textSecondary" gutterBottom>{weather.name}</Typography>
-                                        </Grid>
-                                    </Paper>
-                                    <Paper style={styles.subComponent}>
+                                    </div>
+                                    <div style={styles.subComponent}>
                                         <Grid container direction="row" spacing={2} justify="center" style={{marginTop: '10px'}}>
                                             {todayForecast.map(forecast => (
                                                 <Grid item key={forecast.dt}>
@@ -249,7 +248,7 @@ const WeatherComponent = (props) => {
                                                 </Grid>
                                             ))}
                                         </Grid>
-                                    </Paper>
+                                    </div>
                                 </Grid>
                             </CardActionArea>
                         </Grid>
