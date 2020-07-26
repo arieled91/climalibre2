@@ -137,8 +137,7 @@ const WeatherComponent = (props) => {
             height: '28px'
         },
         temp: {
-            fontSize: '42pt',
-            fontWeight: 'bold',
+            fontSize: '55pt',
             verticalAlign: 'middle'
         },
         middle: {
@@ -151,13 +150,13 @@ const WeatherComponent = (props) => {
         component: {
             // background: 'rgba(245,245,245, .75)',
             padding: '10px',
-            width: '250px',
+            width: '270px',
         },
         subComponent: {
             // background: 'rgba(245,245,245, .75)',
             // marginTop: '5px',
             paddingBottom: '10px',
-            width: '250px',
+            width: '270px',
             overflowX: 'visible'
         },
         main: {
@@ -186,7 +185,7 @@ const WeatherComponent = (props) => {
                                 <Grid container direction="column" justify="center" alignItems="center">
                                     <div style={styles.component}>
                                         <Grid item>
-                                            <Typography variant="caption" style={{fontSize: '7pt', color: 'rgba(255,255,255,0.69)'}}>{weather.name}</Typography>
+                                            <Typography variant="caption" style={{fontSize: '10pt', color: 'rgba(255,255,255,0.69)'}}>{weather.name}</Typography>
                                         </Grid>
                                         <Grid item>
                                             <Typography variant="h5" gutterBottom style={{...styles.capitalize, marginBottom: '-5px'}}>
@@ -203,10 +202,10 @@ const WeatherComponent = (props) => {
                                                 </Grid>
                                                 <Grid item>
                                                     <Grid container direction="column" justify="center" alignItems="center">
-                                                        <Grid item style={{fontSize: '16pt'}}>
+                                                        <Grid item style={{fontSize: '20pt'}}>
                                                             {fix(weather.main.temp_max) + '°'}
                                                         </Grid>
-                                                        <Grid item style={{fontSize: '16pt'}}>
+                                                        <Grid item style={{fontSize: '20pt'}}>
                                                             {fix(weather.main.temp_min) + '°'}
                                                         </Grid>
                                                     </Grid>
@@ -243,7 +242,7 @@ const WeatherComponent = (props) => {
                                                         <span style={{position: "relative", bottom: '4px'}}><strong>{fix(forecast.main.temp) + '°'}</strong></span>
                                                     </div>
                                                     <div>
-                                                        <strong style={{fontSize: '8pt'}}>{getLocalTime(forecast.dt*1000)}</strong>
+                                                        <strong>{getLocalTime(forecast.dt*1000)}</strong>
                                                     </div>
                                                 </Grid>
                                             ))}
