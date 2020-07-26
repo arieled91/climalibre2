@@ -9,6 +9,7 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 const Weather = (props) => {
 
     const [weather, setWeather] = React.useState(null);
+    const [forecast, setForecast] = React.useState(null);
     const [error, setError] = React.useState(null);
     const [permission, setPermission] = React.useState('');
 
@@ -70,6 +71,16 @@ const Weather = (props) => {
                 setError(error.message);
                 console.log(error);
             });
+
+        Api.getForecastByCoords(lat, lon, message.getLanguage())
+            .then((forecast) => {
+                setForecast(forecast);
+                console.log(forecast);
+            })
+            .catch((error) => {
+                setError(error.message);
+                console.log(error);
+            });
     }
 
     const getWeatherByCity = (city, countryCode) => {
@@ -87,7 +98,10 @@ const Weather = (props) => {
             {!weather && permission === Permission.PROMPT && <Alert severity="info"><strong>{message.important}</strong>{" "+message.geolocationRequest}</Alert>}
             {weather ? <WeatherComponent
                     clicked={populate.bind(this)}
-                    weather={weather}/> :
+                    weather={weather}
+                    forecast={forecast}
+                />
+                    :
                 permission !== Permission.DENIED && <LinearProgress />}
         </div>
     )

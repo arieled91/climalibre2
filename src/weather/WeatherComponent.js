@@ -38,44 +38,59 @@ import coveredNightImg from "./../assets/covered-night.jpg";
 import rainyNightImg from "./../assets/rainy-night.jpg";
 
 import './Image.css';
+import Paper from "@material-ui/core/Paper";
+import {FixedSizeList} from "react-window";
 
 const WeatherComponent = (props) => {
     const weather = props.weather;
 
     const [image, setImage] = React.useState({min: '', full: ''});
     const [imageLoaded, setImageLoaded] = React.useState(false);
+    const [todayForecast, setTodayForecast] = React.useState([]);
 
     const isDayTime = React.useCallback(() => {
-        const sunrise = weather.sys.sunrise*1000;
-        const sunset = weather.sys.sunset*1000;
+        const sunrise = weather.sys.sunrise * 1000;
+        const sunset = weather.sys.sunset * 1000;
         const now = new Date().getTime();
         return now > sunrise && now < sunset;
-    },[weather])
+    }, [weather])
 
     const calculateImage = React.useCallback(() => {
-        if(!weather) return null;
+        if (!weather) return null;
         const id = weather.weather[0].id;
-        const code = (''+id)[0];
+        const code = ('' + id)[0];
         const day = isDayTime()
 
         switch (code) {
-            case '2': return {full: stormImg, min: stormImgMin};
-            case '3': return day ? {full: drizzleImg, min: drizzleImgMin} : {full: drizzleNightImg, min: drizzleNightImgMin};
-            case '5': return day ? {full: rainyImg, min: rainyImgMin} : {full: rainyNightImg, min: rainyNightImgMin};
-            case '6': return day ? {full: snowImg, min: snowImgMin} : {full: snowNightImg, min: snowNightImgMin};
-            case '7': return day ? {full: fogImg, min: fogImgMin} : {full: fogNightImg, min: fogNightImgMin};
+            case '2':
+                return {full: stormImg, min: stormImgMin};
+            case '3':
+                return day ? {full: drizzleImg, min: drizzleImgMin} : {full: drizzleNightImg, min: drizzleNightImgMin};
+            case '5':
+                return day ? {full: rainyImg, min: rainyImgMin} : {full: rainyNightImg, min: rainyNightImgMin};
+            case '6':
+                return day ? {full: snowImg, min: snowImgMin} : {full: snowNightImg, min: snowNightImgMin};
+            case '7':
+                return day ? {full: fogImg, min: fogImgMin} : {full: fogNightImg, min: fogNightImgMin};
             case '8':
-                if(id === 800 || id === 801) return day ? {full: sunnyImg, min: sunnyImgMin} : {full: clearSkyNightImg, min: clearSkyNightImgMin};
-                if(id === 802 || id === 803) return day ? {full: cloudyImg, min: cloudyImgMin} : {full: cloudySkyNightImg, min: cloudySkyNightImgMin};
-                return day ? {full: coveredImg, min:coveredImgMin} : {full: coveredNightImg, min: coveredNightImgMin};
-            default: return {full: cloudyImg, min:cloudyImgMin};
+                if (id === 800 || id === 801) return day ? {full: sunnyImg, min: sunnyImgMin} : {
+                    full: clearSkyNightImg,
+                    min: clearSkyNightImgMin
+                };
+                if (id === 802 || id === 803) return day ? {
+                    full: cloudyImg,
+                    min: cloudyImgMin
+                } : {full: cloudySkyNightImg, min: cloudySkyNightImgMin};
+                return day ? {full: coveredImg, min: coveredImgMin} : {full: coveredNightImg, min: coveredNightImgMin};
+            default:
+                return {full: cloudyImg, min: cloudyImgMin};
         }
 
-    },[isDayTime, weather])
+    }, [isDayTime, weather])
 
     React.useEffect(() => {
         setImage(calculateImage());
-    },[calculateImage, props.weather])
+    }, [calculateImage, props.weather])
 
 
     const degreesToCardinal = (deg) => {
@@ -92,6 +107,28 @@ const WeatherComponent = (props) => {
         ];
 
         return cardinals[parseFloat((deg % 360) / 45).toFixed(0)];
+    }
+
+    const tomorrow = () => {
+        let date = new Date()
+        date.setHours(7, 0, 0, 0);
+        date.setDate(date.getDate() + 1)
+        return date;
+    }
+
+    React.useEffect(() => {
+        if (props.forecast) {
+            setTodayForecast(props.forecast.list.filter(w => w.dt * 1000 < tomorrow()).slice(0,3));
+        }
+    }, [props.forecast])
+
+    const fix = (temp, digits=0) => {
+        return parseFloat(temp).toFixed(digits);
+    }
+
+    const getLocalTime = (time) => {
+        const stringTime = new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false});
+        return stringTime.charAt(0) === '0' ? stringTime.substr(1) : stringTime;
     }
 
     const styles = {
@@ -115,8 +152,15 @@ const WeatherComponent = (props) => {
         },
         component: {
             background: 'rgba(245,245,245, .75)',
-            padding: '60px 0 60px 0',
-            borderRadius : '5px'
+            padding: '30px',
+            width: '250px',
+        },
+        subComponent: {
+            background: 'rgba(245,245,245, .75)',
+            marginTop: '5px',
+            padding: '0 30px 20px 30px',
+            width: '250px',
+            overflowX: 'visible'
         },
         main: {
             width: '100%',
@@ -124,9 +168,6 @@ const WeatherComponent = (props) => {
             align: 'center',
             textAlign: 'center',
             overflow: 'hidden'
-            // backgroundRepeat: 'no-repeat',
-            // backgroundPosition: 'center',
-            // backgroundSize: 'cover',
         },
         fullHeight: {
             height: '100%'
@@ -141,69 +182,84 @@ const WeatherComponent = (props) => {
                     <img className="image full" src={image.full} alt='' onLoad={() => setImageLoaded(true)}/>
                 </div>
                 <CardContent style={styles.fullHeight}>
-                    <Grid container direction="row" justify="center" alignItems="center"
-                          style={styles.fullHeight}>
-                        <Grid item xs={1} sm={3} md={4} xl={5}/>
-                        <Grid item xs={10} sm={6} md={4} xl={2}>
+                    <Grid container direction="row" justify="center" alignItems="center" style={styles.fullHeight}>
+                        <Grid>
                             <CardActionArea onClick={props.clicked}>
-                            <Grid container direction="column" justify="center" alignItems="center" style={styles.component}>
-
-                                <Grid item>
-                                    <Typography variant="h5" gutterBottom style={{...styles.capitalize, marginBottom: '-5px'}}>
-                                        {weather.weather[0].description}
-                                    </Typography>
-                                </Grid>
-
-                                <Grid item>
-                                    <Grid container spacing={2}>
+                                <Grid container direction="column" justify="center" alignItems="center">
+                                    <Paper style={styles.component}>
                                         <Grid item>
-                                            <Typography variant='h4' style={styles.temp}>
-                                                <img alt="" src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}/>
-                                                {(parseFloat(weather.main.temp).toFixed(0))+"°C"}
+                                            <Typography variant="h5" gutterBottom style={{...styles.capitalize, marginBottom: '-5px'}}>
+                                                {weather.weather[0].description}
                                             </Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Grid container direction="column" style={{marginTop: '10px'}}>
-                                                <Grid item style={{fontSize: '16pt'}}>
-                                                    {(parseFloat(weather.main.temp_max).toFixed(0))+'°'}
+                                            <Grid container spacing={2} justify="center" alignItems="center">
+                                                <Grid item>
+                                                    <Typography variant='h4' style={styles.temp}>
+                                                        <img alt="" src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}/>
+                                                        {fix(weather.main.temp)+ "°C"}
+                                                    </Typography>
                                                 </Grid>
-                                                <Grid item style={{fontSize: '16pt'}}>
-                                                    {(parseFloat(weather.main.temp_min).toFixed(0))+'°'}
+                                                <Grid item>
+                                                    <Grid container direction="column" justify="center" alignItems="center">
+                                                        <Grid item style={{fontSize: '16pt'}}>
+                                                            {fix(weather.main.temp_max) + '°'}
+                                                        </Grid>
+                                                        <Grid item style={{fontSize: '16pt'}}>
+                                                            {fix(weather.main.temp_min) + '°'}
+                                                        </Grid>
+                                                    </Grid>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
-                                    </Grid>
-                                </Grid>
 
-                                <Grid item>
-                                    <Typography variant="body1" gutterBottom>
-                                        {message.feelsLike}: <strong>{parseFloat(weather.main.feels_like).toFixed(1)+"º"}</strong>
-                                    </Typography>
+                                        <Grid item>
+                                            <Typography variant="body1" gutterBottom>
+                                                {message.feelsLike}: <strong>{fix(weather.main.feels_like) + "º"}</strong>
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography variant="body1" gutterBottom>
+                                                {message.humidity}: <strong>{fix(weather.main.humidity) + "%"}</strong>
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography variant="body1" gutterBottom>
+                                                {message.wind}: <strong>{fix(weather.wind.speed) + " km/h " + degreesToCardinal(weather.wind.deg)}</strong>
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography variant="caption" color="textSecondary" gutterBottom>{weather.name}</Typography>
+                                        </Grid>
+                                    </Paper>
+                                    <Paper style={styles.subComponent}>
+                                        <Grid container direction="row" spacing={2} justify="center" style={{marginTop: '10px'}}>
+                                            {todayForecast.map(forecast => (
+                                                <Grid item key={forecast.dt}>
+                                                    <div style={{...styles.capitalize, fontSize: '8pt'}}>
+                                                        {forecast.weather[0].description}
+                                                    </div>
+
+                                                    <div>
+                                                        <img style={{marginBottom: '-10px', marginTop: '-5px', width: '35px'}} alt="" src={`https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}/>
+                                                        <span style={{position: "relative", bottom: '4px'}}><strong>{fix(forecast.main.temp) + '°'}</strong></span>
+                                                    </div>
+                                                    <div>
+                                                        <strong style={{fontSize: '8pt'}}>{getLocalTime(forecast.dt*1000)}</strong>
+                                                    </div>
+                                                </Grid>
+                                            ))}
+                                        </Grid>
+                                    </Paper>
                                 </Grid>
-                                <Grid item>
-                                    <Typography variant="body1" gutterBottom>
-                                        {message.humidity}: <strong>{parseFloat(weather.main.humidity).toFixed(0)+"%"}</strong>
-                                    </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography variant="body1" gutterBottom>
-                                        {message.wind}: <strong>{parseFloat(weather.wind.speed).toFixed(0)+" km/h "+degreesToCardinal(weather.wind.deg)}</strong>
-                                    </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography color="textSecondary" gutterBottom>{weather.name}</Typography>
-                                </Grid>
-                            </Grid>
                             </CardActionArea>
                         </Grid>
-                        <Grid item xs={1} sm={3} md={4} xl={5}/>
                     </Grid>
                 </CardContent>
             </Card>
         </div>
     )
 }
-
 
 
 export default WeatherComponent;
