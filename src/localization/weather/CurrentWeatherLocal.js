@@ -23,7 +23,7 @@ const message = new LocalizedStrings({
   es: {
   	loading : "Cargando...",
     humidity:"Humedad",
-    feelsLike:"Sensación",
+    feelsLike:"Sensación térmica",
     wind:"Viento",
     important : "¡Importante!",
     geolocationRequest : "Para continuar conceda permisos de ubicación.",

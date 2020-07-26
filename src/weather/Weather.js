@@ -92,12 +92,24 @@ const Weather = (props) => {
             });
     }
 
+
+    const onFocus = () => {
+        populate();
+    };
+
+    React.useEffect(() => {
+        window.addEventListener('focus', onFocus);
+
+        return () => {
+            window.removeEventListener('focus', onFocus);
+        };
+    });
+
     return (
         <div style={{height: '100%', width: '100%'}}>
             {error && <Alert severity="error">{error}</Alert>}
             {!weather && permission === Permission.PROMPT && <Alert severity="info"><strong>{message.important}</strong>{" "+message.geolocationRequest}</Alert>}
             {weather ? <WeatherComponent
-                    clicked={populate.bind(this)}
                     weather={weather}
                     forecast={forecast}
                 />

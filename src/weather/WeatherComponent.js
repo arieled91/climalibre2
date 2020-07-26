@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import message from "../localization/weather/CurrentWeatherLocal";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -116,16 +116,16 @@ const WeatherComponent = (props) => {
 
     React.useEffect(() => {
         if (props.forecast) {
-            setTodayForecast(props.forecast.list.filter(w => w.dt * 1000 < tomorrow()).slice(0,3));
+            setTodayForecast(props.forecast.list.filter(w => w.dt * 1000 < tomorrow()));//.slice(0, 3));
         }
     }, [props.forecast])
 
-    const fix = (temp, digits=0) => {
+    const fix = (temp, digits = 0) => {
         return parseFloat(temp).toFixed(digits);
     }
 
     const getLocalTime = (time) => {
-        const stringTime = new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false});
+        const stringTime = new Date(time).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false});
         return stringTime.charAt(0) === '0' ? stringTime.substr(1) : stringTime;
     }
 
@@ -147,113 +147,104 @@ const WeatherComponent = (props) => {
             textTransform: 'capitalize',
             fontWeight: 'bold'
         },
-        component: {
-            // background: 'rgba(245,245,245, .75)',
-            padding: '10px',
-            width: '270px',
-        },
         subComponent: {
-            // background: 'rgba(245,245,245, .75)',
-            // marginTop: '5px',
             paddingBottom: '10px',
-            width: '270px',
         },
         main: {
             width: '100%',
             height: '100%',
-            // align: 'center',
             textAlign: 'center',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            zIndex: '1',
         },
         fullHeight: {
-            height: '100%'
+            position: 'fixed',
+            height: '100%',
         }
     }
 
     return (
-        <div style={styles.main}>
-            <Card>
-                <div>
-                    {!imageLoaded && <img className="image thumb" src={image.min} alt=''/>}
-                    <img className="image full" src={image.full} alt='' onLoad={() => setImageLoaded(true)}/>
-                </div>
-                <CardContent style={styles.fullHeight}>
-                    <Grid container direction="row" justify="center" alignItems="center" style={styles.fullHeight}>
-                        <Grid>
-                            <CardActionArea onClick={props.clicked}>
+        <Fragment>
+            <div>
+                {!imageLoaded && <img className="image thumb" src={image.min} alt=''/>}
+                <img className="image full" src={image.full} alt='' onLoad={() => setImageLoaded(true)}/>
+            </div>
+            <div style={styles.main} className="weatherComponent">
+                <Grid container direction="column" justify="center" alignItems="center" style={styles.fullHeight}>
+                    <Grid item>
+                        <Typography variant="caption" style={{
+                            fontSize: '10pt',
+                            color: 'rgba(255,255,255,0.69)'
+                        }}>{weather.name}</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h5" gutterBottom
+                                    style={{...styles.capitalize, marginBottom: '-5px'}}>
+                            {weather.weather[0].description}
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Grid container spacing={2} justify="center" alignItems="center">
+                            <Grid item>
+                                <Typography variant='h4' style={styles.temp}>
+                                    <img alt=""
+                                         src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}/>
+                                    {fix(weather.main.temp) + "°C"}
+                                </Typography>
+                            </Grid>
+                            <Grid item>
                                 <Grid container direction="column" justify="center" alignItems="center">
-                                    <div style={styles.component}>
-                                        <Grid item>
-                                            <Typography variant="caption" style={{fontSize: '10pt', color: 'rgba(255,255,255,0.69)'}}>{weather.name}</Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <Typography variant="h5" gutterBottom style={{...styles.capitalize, marginBottom: '-5px'}}>
-                                                {weather.weather[0].description}
-                                            </Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <Grid container spacing={2} justify="center" alignItems="center">
-                                                <Grid item>
-                                                    <Typography variant='h4' style={styles.temp}>
-                                                        <img alt="" src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}/>
-                                                        {fix(weather.main.temp)+ "°C"}
-                                                    </Typography>
-                                                </Grid>
-                                                <Grid item>
-                                                    <Grid container direction="column" justify="center" alignItems="center">
-                                                        <Grid item style={{fontSize: '20pt'}}>
-                                                            {fix(weather.main.temp_max) + '°'}
-                                                        </Grid>
-                                                        <Grid item style={{fontSize: '20pt'}}>
-                                                            {fix(weather.main.temp_min) + '°'}
-                                                        </Grid>
-                                                    </Grid>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-
-                                        <Grid item>
-                                            <Typography variant="body1" gutterBottom>
-                                                {message.feelsLike}: <strong>{fix(weather.main.feels_like) + "º"}</strong>
-                                            </Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <Typography variant="body1" gutterBottom>
-                                                {message.humidity}: <strong>{fix(weather.main.humidity) + "%"}</strong>
-                                            </Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <Typography variant="body1" gutterBottom>
-                                                {message.wind}: <strong>{fix(weather.wind.speed) + " km/h " + degreesToCardinal(weather.wind.deg)}</strong>
-                                            </Typography>
-                                        </Grid>
-                                    </div>
-                                    <div style={styles.subComponent}>
-                                        <Grid container direction="row" spacing={2} justify="center" style={{marginTop: '10px'}}>
-                                            {todayForecast.map(forecast => (
-                                                <Grid item key={forecast.dt}>
-                                                    <div style={{...styles.capitalize, fontSize: '8pt'}}>
-                                                        {forecast.weather[0].description}
-                                                    </div>
-
-                                                    <div>
-                                                        <img style={{marginBottom: '-10px', marginTop: '-5px', width: '35px'}} alt="" src={`https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}/>
-                                                        <span style={{position: "relative", bottom: '4px'}}><strong>{fix(forecast.main.temp) + '°'}</strong></span>
-                                                    </div>
-                                                    <div>
-                                                        <strong>{getLocalTime(forecast.dt*1000)}</strong>
-                                                    </div>
-                                                </Grid>
-                                            ))}
-                                        </Grid>
-                                    </div>
+                                    <Grid item style={{fontSize: '20pt'}}>
+                                        {fix(weather.main.temp_max) + '°'}
+                                    </Grid>
+                                    <Grid item style={{fontSize: '20pt'}}>
+                                        {fix(weather.main.temp_min) + '°'}
+                                    </Grid>
                                 </Grid>
-                            </CardActionArea>
+                            </Grid>
                         </Grid>
                     </Grid>
-                </CardContent>
-            </Card>
-        </div>
+
+                    <Grid item>
+                        <Typography variant="body1" gutterBottom>
+                            {message.feelsLike}: <strong>{fix(weather.main.feels_like) + "º"}</strong>
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="body1" gutterBottom>
+                            {message.humidity}: <strong>{fix(weather.main.humidity) + "%"}</strong>
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="body1" gutterBottom>
+                            {message.wind}: <strong>{fix(weather.wind.speed) + " km/h " + degreesToCardinal(weather.wind.deg)}</strong>
+                        </Typography>
+                    </Grid>
+                    {/*<Grid container direction="row" spacing={2} justify="center" style={{marginTop: '10px', width: '100%', overflowX: 'auto'}}>*/}
+                    <div style={{display:'flex', marginTop: '10px', width: '100%', overflowX: 'auto', bottom: '0', position: 'absolute', marginBottom: '20px'}}>
+                        {todayForecast.map(forecast => (
+                            <div key={forecast.dt} style={{padding: '10px', width: '30%'}}>
+                                <div style={{...styles.capitalize, fontSize: '8pt', marginBottom: '5px', width: '90px'}}>
+                                    {forecast.weather[0].description}
+                                </div>
+                                <div style={{display:'inline-block', textAlign: 'center'}}>
+                                    <img style={{marginBottom: '-10px', marginTop: '-5px', width: '35px'}}
+                                         alt=""
+                                         src={`https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}/>
+                                    <span style={{
+                                        position: "relative",
+                                        bottom: '4px'
+                                    }}><strong>{fix(forecast.main.temp) + '°'}</strong></span>
+                                </div>
+                                <div>
+                                    <strong>{getLocalTime(forecast.dt * 1000)}</strong>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </Grid>
+            </div>
+        </Fragment>
     )
 }
 
