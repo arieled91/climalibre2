@@ -11,13 +11,24 @@
 }
 .thumb {
     filter: blur(20px);
-    /*transform: scale(1.1);*/
+    -webkit-filter: blur(20px);
     transition: visibility 0ms ease 400ms;
 }
 
 .weather-component {
     color: #ffffff;
-    text-shadow: 0 2px 3px rgba(0,0,0,0.8), 0 4px 13px rgba(0,0,0,0.2), 0 8px 10px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 3px rgba(0,0,0,0.8),
+                 0 4px 13px rgba(0,0,0,0.2),
+                 0 4px 10px rgba(0,0,0,1);
+}
+
+.extra-shadow {
+    color: #ffffff;
+    text-shadow: 0 2px 3px rgba(0,0,0,0.8),
+                0 4px 13px rgba(0,0,0,0.2),
+                0 8px 10px rgba(0,0,0,0.2),
+                0 0 20px rgba(0,0,0,0.8),
+                0 0 20px rgba(0,0,0,1);
 }
 
 .hide-scrollbar::-webkit-scrollbar {

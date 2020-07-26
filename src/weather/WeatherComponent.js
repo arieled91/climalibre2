@@ -35,6 +35,7 @@ import coveredNightImg from "./../assets/covered-night.jpg";
 import rainyNightImg from "./../assets/rainy-night.jpg";
 
 import './WeatherComponent.css';
+import Container from "@material-ui/core/Container";
 
 const WeatherComponent = (props) => {
     const weather = props.weather;
@@ -54,7 +55,7 @@ const WeatherComponent = (props) => {
         if (!weather) return null;
         const id = weather.weather[0].id;
         const code = ('' + id)[0];
-        const day = isDayTime()
+        const day = isDayTime();
 
         switch (code) {
             case '2':
@@ -155,14 +156,26 @@ const WeatherComponent = (props) => {
             zIndex: '1',
         },
         fullHeight: {
-            position: 'fixed',
+            position: 'relative',
             height: '100%',
+            // marginTop: '-100px'
+        },
+        forecastContainer: {
+            display:'flex',
+            marginTop: '10px',
+            width: '100%',
+            overflowX: 'auto',
+            bottom: '0',
+            position: 'absolute',
+            marginBottom: '20px',
+
         }
     }
 
     return (
         <Fragment>
             <div>
+                {/*{!imageLoaded && <img className="image thumb" src={image.min} alt=''/>}*/}
                 {!imageLoaded && <img className="image thumb" src={image.min} alt=''/>}
                 <img className="image full" src={image.full} alt='' onLoad={() => setImageLoaded(true)}/>
             </div>
@@ -217,10 +230,9 @@ const WeatherComponent = (props) => {
                             {message.wind}: <strong>{fix(weather.wind.speed) + " km/h " + degreesToCardinal(weather.wind.deg)}</strong>
                         </Typography>
                     </Grid>
-                    {/*<Grid container direction="row" spacing={2} justify="center" style={{marginTop: '10px', width: '100%', overflowX: 'auto'}}>*/}
-                    <div className="hide-scrollbar" style={{display:'flex', marginTop: '10px', width: '100%', overflowX: 'auto', bottom: '0', position: 'absolute', marginBottom: '20px'}}>
+                    <div className="hide-scrollbar extra-shadow" style={styles.forecastContainer}>
                         {todayForecast.map(forecast => (
-                            <div key={forecast.dt} style={{padding: '10px', width: '30%'}}>
+                            <div key={forecast.dt} style={{padding: '10px', width: '80px', flexDirection: 'row', justifyContent: 'center', margin: '0 auto'}}>
                                 <div style={{...styles.capitalize, fontSize: '8pt', marginBottom: '5px', minWidth: '90px', textAlign: 'center'}}>
                                     {forecast.weather[0].description}
                                 </div>
