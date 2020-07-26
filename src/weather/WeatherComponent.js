@@ -39,7 +39,6 @@ import rainyNightImg from "./../assets/rainy-night.jpg";
 
 import './Image.css';
 import Paper from "@material-ui/core/Paper";
-import {FixedSizeList} from "react-window";
 
 const WeatherComponent = (props) => {
     const weather = props.weather;
