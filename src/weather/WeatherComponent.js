@@ -157,12 +157,11 @@ const WeatherComponent = (props) => {
             // marginTop: '5px',
             paddingBottom: '10px',
             width: '270px',
-            overflowX: 'visible'
         },
         main: {
             width: '100%',
             height: '100%',
-            align: 'center',
+            // align: 'center',
             textAlign: 'center',
             overflow: 'hidden'
         },
@@ -173,7 +172,7 @@ const WeatherComponent = (props) => {
 
     return (
         <div style={styles.main}>
-            <Card style={styles.main}>
+            <Card>
                 <div>
                     {!imageLoaded && <img className="image thumb" src={image.min} alt=''/>}
                     <img className="image full" src={image.full} alt='' onLoad={() => setImageLoaded(true)}/>
