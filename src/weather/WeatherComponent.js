@@ -158,7 +158,7 @@ const WeatherComponent = (props) => {
         fullHeight: {
             position: 'relative',
             height: '100%',
-            // marginTop: '-100px'
+            marginTop: '-100px'
         },
         forecastContainer: {
             display:'flex',
@@ -230,28 +230,28 @@ const WeatherComponent = (props) => {
                             {message.wind}: <strong>{fix(weather.wind.speed) + " km/h " + degreesToCardinal(weather.wind.deg)}</strong>
                         </Typography>
                     </Grid>
-                    <div className="hide-scrollbar extra-shadow" style={styles.forecastContainer}>
-                        {todayForecast.map(forecast => (
-                            <div key={forecast.dt} style={{padding: '10px', width: '80px', flexDirection: 'row', justifyContent: 'center', margin: '0 auto'}}>
-                                <div style={{...styles.capitalize, fontSize: '8pt', marginBottom: '5px', minWidth: '90px', textAlign: 'center'}}>
-                                    {forecast.weather[0].description}
-                                </div>
-                                <div style={{display:'inline-block', textAlign: 'center'}}>
-                                    <img style={{marginBottom: '-10px', marginTop: '-5px', width: '35px'}}
-                                         alt=""
-                                         src={`https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}/>
-                                    <span style={{
-                                        position: "relative",
-                                        bottom: '4px'
-                                    }}><strong>{fix(forecast.main.temp) + '°'}</strong></span>
-                                </div>
-                                <div>
-                                    <strong>{getLocalTime(forecast.dt * 1000)}</strong>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
                 </Grid>
+                <div className="hide-scrollbar extra-shadow" style={styles.forecastContainer}>
+                    {todayForecast.map(forecast => (
+                        <div key={forecast.dt} style={{padding: '10px', width: '80px', flexDirection: 'row', justifyContent: 'center', margin: '0 auto'}}>
+                            <div style={{...styles.capitalize, fontSize: '8pt', marginBottom: '5px', minWidth: '90px', textAlign: 'center'}}>
+                                {forecast.weather[0].description}
+                            </div>
+                            <div style={{display:'inline-block', textAlign: 'center'}}>
+                                <img style={{marginBottom: '-10px', marginTop: '-5px', width: '35px'}}
+                                     alt=""
+                                     src={`https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}/>
+                                <span style={{
+                                    position: "relative",
+                                    bottom: '4px'
+                                }}><strong>{fix(forecast.main.temp) + '°'}</strong></span>
+                            </div>
+                            <div>
+                                <strong style={{fontSize: '9pt'}}>{getLocalTime(forecast.dt * 1000)}</strong>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </Fragment>
     )
