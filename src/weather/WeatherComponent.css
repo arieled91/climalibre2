@@ -15,7 +15,17 @@
     transition: visibility 0ms ease 400ms;
 }
 
-.weatherComponent {
+.weather-component {
     color: #ffffff;
     text-shadow: 0 2px 3px rgba(0,0,0,0.8), 0 4px 13px rgba(0,0,0,0.2), 0 8px 10px rgba(0,0,0,0.2);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

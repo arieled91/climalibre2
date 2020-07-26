@@ -1,9 +1,6 @@
 import React, {Fragment} from 'react'
 import message from "../localization/weather/CurrentWeatherLocal";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import Grid from "@material-ui/core/Grid";
 
 import cloudyImgMin from "./../assets/cloudy-sky-min.jpg";
@@ -169,7 +166,7 @@ const WeatherComponent = (props) => {
                 {!imageLoaded && <img className="image thumb" src={image.min} alt=''/>}
                 <img className="image full" src={image.full} alt='' onLoad={() => setImageLoaded(true)}/>
             </div>
-            <div style={styles.main} className="weatherComponent">
+            <div style={styles.main} className="weather-component">
                 <Grid container direction="column" justify="center" alignItems="center" style={styles.fullHeight}>
                     <Grid item>
                         <Typography variant="caption" style={{
@@ -221,10 +218,10 @@ const WeatherComponent = (props) => {
                         </Typography>
                     </Grid>
                     {/*<Grid container direction="row" spacing={2} justify="center" style={{marginTop: '10px', width: '100%', overflowX: 'auto'}}>*/}
-                    <div style={{display:'flex', marginTop: '10px', width: '100%', overflowX: 'auto', bottom: '0', position: 'absolute', marginBottom: '20px'}}>
+                    <div className="hide-scrollbar" style={{display:'flex', marginTop: '10px', width: '100%', overflowX: 'auto', bottom: '0', position: 'absolute', marginBottom: '20px'}}>
                         {todayForecast.map(forecast => (
                             <div key={forecast.dt} style={{padding: '10px', width: '30%'}}>
-                                <div style={{...styles.capitalize, fontSize: '8pt', marginBottom: '5px', width: '90px'}}>
+                                <div style={{...styles.capitalize, fontSize: '8pt', marginBottom: '5px', minWidth: '90px', textAlign: 'center'}}>
                                     {forecast.weather[0].description}
                                 </div>
                                 <div style={{display:'inline-block', textAlign: 'center'}}>
