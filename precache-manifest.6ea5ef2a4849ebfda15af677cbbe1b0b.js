@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "358b0ab3654470b2e9d0b84d4f780b11",
+    "revision": "30c2252ae530a2e08122ee9dbfd699e1",
     "url": "/climalibre2/index.html"
   },
   {
-    "revision": "6e43fd0bbd409dc0c3a3",
-    "url": "/climalibre2/static/css/2.d2701ec3.chunk.css"
+    "revision": "0206fe569307ddbabd2e",
+    "url": "/climalibre2/static/css/2.8a204d60.chunk.css"
   },
   {
-    "revision": "a92f8e98058dc4973159",
-    "url": "/climalibre2/static/css/main.d30326a6.chunk.css"
+    "revision": "c03304b749566c7eff77",
+    "url": "/climalibre2/static/css/main.37214bfb.chunk.css"
   },
   {
-    "revision": "6e43fd0bbd409dc0c3a3",
-    "url": "/climalibre2/static/js/2.a906f07a.chunk.js"
+    "revision": "0206fe569307ddbabd2e",
+    "url": "/climalibre2/static/js/2.774ab92c.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/climalibre2/static/js/2.a906f07a.chunk.js.LICENSE.txt"
+    "url": "/climalibre2/static/js/2.774ab92c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a92f8e98058dc4973159",
-    "url": "/climalibre2/static/js/main.fc91c01c.chunk.js"
+    "revision": "c03304b749566c7eff77",
+    "url": "/climalibre2/static/js/main.97a73b82.chunk.js"
   },
   {
     "revision": "6dabf8c63beadd26522b",
@@ -116,6 +116,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/climalibre2/static/media/rainy-night.26eee4b5.jpg"
   },
   {
+    "revision": "a90b30537ba3d7aa28852f42de040b62",
+    "url": "/climalibre2/static/media/roboto-latin-100-italic.a90b3053.ttf"
+  },
+  {
     "revision": "f8b1df51ba843179fa1cc9b53d58127a",
     "url": "/climalibre2/static/media/roboto-latin-100-italic.f8b1df51.woff2"
   },
@@ -132,12 +136,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/climalibre2/static/media/roboto-latin-100-normal.7370c367.woff2"
   },
   {
+    "revision": "ff1e90ce3376de433388ec3fc415aa0f",
+    "url": "/climalibre2/static/media/roboto-latin-100-normal.ff1e90ce.ttf"
+  },
+  {
     "revision": "14286f3ba79c6627433572dfa925202e",
     "url": "/climalibre2/static/media/roboto-latin-300-italic.14286f3b.woff2"
   },
   {
     "revision": "4df32891a5f2f98a363314f595482e08",
     "url": "/climalibre2/static/media/roboto-latin-300-italic.4df32891.woff"
+  },
+  {
+    "revision": "51c5bffe2d6699b2e97e9668ea5e5486",
+    "url": "/climalibre2/static/media/roboto-latin-300-italic.51c5bffe.ttf"
+  },
+  {
+    "revision": "806854d4422d0bd79e0f8c87c329a568",
+    "url": "/climalibre2/static/media/roboto-latin-300-normal.806854d4.ttf"
   },
   {
     "revision": "b00849e00f4c2331cddd8ffb44a6720b",
@@ -152,8 +168,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/climalibre2/static/media/roboto-latin-400-italic.51521a2a.woff2"
   },
   {
+    "revision": "d4ad1feb7c4f56f17cd4ab62fa517692",
+    "url": "/climalibre2/static/media/roboto-latin-400-italic.d4ad1feb.ttf"
+  },
+  {
     "revision": "fe65b8335ee19dd944289f9ed3178c78",
     "url": "/climalibre2/static/media/roboto-latin-400-italic.fe65b833.woff"
+  },
+  {
+    "revision": "329ae1c377b1fb667f5be6abd50327fc",
+    "url": "/climalibre2/static/media/roboto-latin-400-normal.329ae1c3.ttf"
   },
   {
     "revision": "479970ffb74f2117317f9d24d9e317fe",
@@ -162,6 +186,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "60fa3c0614b8fb2f394fa29944c21540",
     "url": "/climalibre2/static/media/roboto-latin-400-normal.60fa3c06.woff"
+  },
+  {
+    "revision": "0a36c77ff6cf656ce50b1451d06323c5",
+    "url": "/climalibre2/static/media/roboto-latin-500-italic.0a36c77f.ttf"
   },
   {
     "revision": "288ad9c6e8b43cf02443a1f499bdf67e",
@@ -180,6 +208,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/climalibre2/static/media/roboto-latin-500-normal.87284894.woff"
   },
   {
+    "revision": "8c608256fb0273e3a36e6b603f71f213",
+    "url": "/climalibre2/static/media/roboto-latin-500-normal.8c608256.ttf"
+  },
+  {
+    "revision": "4c13d18aefa3c503b89e89736682cc8e",
+    "url": "/climalibre2/static/media/roboto-latin-700-italic.4c13d18a.ttf"
+  },
+  {
     "revision": "81f57861ed4ac74741f5671e1dff2fd9",
     "url": "/climalibre2/static/media/roboto-latin-700-italic.81f57861.woff"
   },
@@ -192,6 +228,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/climalibre2/static/media/roboto-latin-700-normal.2735a3a6.woff2"
   },
   {
+    "revision": "96559ffb5be917f1ce9f748bf4f34732",
+    "url": "/climalibre2/static/media/roboto-latin-700-normal.96559ffb.ttf"
+  },
+  {
     "revision": "adcde98f1d584de52060ad7b16373da3",
     "url": "/climalibre2/static/media/roboto-latin-700-normal.adcde98f.woff"
   },
@@ -200,8 +240,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/climalibre2/static/media/roboto-latin-900-italic.28f91510.woff"
   },
   {
+    "revision": "a3f8594c0c481ee046fc021a664a91fb",
+    "url": "/climalibre2/static/media/roboto-latin-900-italic.a3f8594c.ttf"
+  },
+  {
     "revision": "ebf6d1640ccddb99fb49f73c052c55a8",
     "url": "/climalibre2/static/media/roboto-latin-900-italic.ebf6d164.woff2"
+  },
+  {
+    "revision": "22acb397075fc000039235655d658600",
+    "url": "/climalibre2/static/media/roboto-latin-900-normal.22acb397.ttf"
   },
   {
     "revision": "9b3766ef4a402ad3fdeef7501a456512",

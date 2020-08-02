@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/climalibre2/static/css/main.d30326a6.chunk.css",
-    "main.js": "/climalibre2/static/js/main.fc91c01c.chunk.js",
-    "main.js.map": "/climalibre2/static/js/main.fc91c01c.chunk.js.map",
+    "main.css": "/climalibre2/static/css/main.37214bfb.chunk.css",
+    "main.js": "/climalibre2/static/js/main.97a73b82.chunk.js",
+    "main.js.map": "/climalibre2/static/js/main.97a73b82.chunk.js.map",
     "runtime-main.js": "/climalibre2/static/js/runtime-main.4cc933bf.js",
     "runtime-main.js.map": "/climalibre2/static/js/runtime-main.4cc933bf.js.map",
-    "static/css/2.d2701ec3.chunk.css": "/climalibre2/static/css/2.d2701ec3.chunk.css",
-    "static/js/2.a906f07a.chunk.js": "/climalibre2/static/js/2.a906f07a.chunk.js",
-    "static/js/2.a906f07a.chunk.js.map": "/climalibre2/static/js/2.a906f07a.chunk.js.map",
+    "static/css/2.8a204d60.chunk.css": "/climalibre2/static/css/2.8a204d60.chunk.css",
+    "static/js/2.774ab92c.chunk.js": "/climalibre2/static/js/2.774ab92c.chunk.js",
+    "static/js/2.774ab92c.chunk.js.map": "/climalibre2/static/js/2.774ab92c.chunk.js.map",
     "index.html": "/climalibre2/index.html",
-    "precache-manifest.08c5caba161a6c08308f74af99409f99.js": "/climalibre2/precache-manifest.08c5caba161a6c08308f74af99409f99.js",
+    "precache-manifest.6ea5ef2a4849ebfda15af677cbbe1b0b.js": "/climalibre2/precache-manifest.6ea5ef2a4849ebfda15af677cbbe1b0b.js",
     "service-worker.js": "/climalibre2/service-worker.js",
-    "static/css/2.d2701ec3.chunk.css.map": "/climalibre2/static/css/2.d2701ec3.chunk.css.map",
-    "static/css/main.d30326a6.chunk.css.map": "/climalibre2/static/css/main.d30326a6.chunk.css.map",
-    "static/js/2.a906f07a.chunk.js.LICENSE.txt": "/climalibre2/static/js/2.a906f07a.chunk.js.LICENSE.txt",
+    "static/css/2.8a204d60.chunk.css.map": "/climalibre2/static/css/2.8a204d60.chunk.css.map",
+    "static/css/main.37214bfb.chunk.css.map": "/climalibre2/static/css/main.37214bfb.chunk.css.map",
+    "static/js/2.774ab92c.chunk.js.LICENSE.txt": "/climalibre2/static/js/2.774ab92c.chunk.js.LICENSE.txt",
     "static/media/clear-sky-night-min.jpg": "/climalibre2/static/media/clear-sky-night-min.38b1b49c.jpg",
     "static/media/clear-sky-night.jpg": "/climalibre2/static/media/clear-sky-night.f323ee0a.jpg",
     "static/media/cloudy-sky-min.jpg": "/climalibre2/static/media/cloudy-sky-min.1effaf46.jpg",
@@ -48,9 +48,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.4cc933bf.js",
-    "static/css/2.d2701ec3.chunk.css",
-    "static/js/2.a906f07a.chunk.js",
-    "static/css/main.d30326a6.chunk.css",
-    "static/js/main.fc91c01c.chunk.js"
+    "static/css/2.8a204d60.chunk.css",
+    "static/js/2.774ab92c.chunk.js",
+    "static/css/main.37214bfb.chunk.css",
+    "static/js/main.97a73b82.chunk.js"
   ]
 }
