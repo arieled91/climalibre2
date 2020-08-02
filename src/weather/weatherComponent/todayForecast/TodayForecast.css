@@ -1,0 +1,25 @@
+.forecast-content {
+    padding: 10px;
+    width: 80px;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.forecast-title {
+    font-size: 8pt;
+    margin-bottom: 5px;
+    min-width: 90px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.extra-shadow {
+    color: #ffffff;
+    text-shadow: 0 2px 3px rgba(0,0,0,0.8),
+    0 4px 13px rgba(0,0,0,0.2),
+    0 8px 10px rgba(0,0,0,0.2),
+    0 0 20px rgba(0,0,0,0.8),
+    0 0 20px rgba(0,0,0,1);
+}

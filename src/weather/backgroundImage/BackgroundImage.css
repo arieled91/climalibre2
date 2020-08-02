@@ -1,0 +1,17 @@
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.full {
+    transition: -webkit-filter .5s ease-in-out;
+    transition: filter .5s ease-in-out;
+}
+.thumb {
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+    transition: visibility 0ms ease 400ms;
+}

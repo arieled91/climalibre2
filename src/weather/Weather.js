@@ -1,12 +1,11 @@
 import React from 'react'
 import message from "../localization/weather/CurrentWeatherLocal";
 import Api from "../api/Api";
-import WeatherComponent from "./WeatherComponent";
+import WeatherComponent from "./weatherComponent/WeatherComponent";
 import Alert from "@material-ui/lab/Alert";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-
-const Weather = (props) => {
+const Weather = () => {
 
     const [weather, setWeather] = React.useState(null);
     const [forecast, setForecast] = React.useState(null);
@@ -108,12 +107,9 @@ const Weather = (props) => {
         <div style={{height: '100%', width: '100%'}}>
             {error && <Alert severity="error">{error}</Alert>}
             {!weather && permission === Permission.PROMPT && <Alert severity="info"><strong>{message.important}</strong>{" "+message.geolocationRequest}</Alert>}
-            {weather ? <WeatherComponent
-                    weather={weather}
-                    forecast={forecast}
-                />
-                    :
-                permission !== Permission.DENIED && <LinearProgress />}
+            {weather ?
+                <WeatherComponent weather={weather} forecast={forecast}/>
+                : permission !== Permission.DENIED && <LinearProgress />}
         </div>
     )
 }
