@@ -75,7 +75,6 @@ const Weather = (props) => {
         Api.getForecastByCoords(lat, lon, message.getLanguage())
             .then((forecast) => {
                 setForecast(forecast);
-                console.log(forecast);
             })
             .catch((error) => {
                 setError(error.message);

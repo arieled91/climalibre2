@@ -35,7 +35,6 @@ import coveredNightImg from "./../assets/covered-night.jpg";
 import rainyNightImg from "./../assets/rainy-night.jpg";
 
 import './WeatherComponent.css';
-import Container from "@material-ui/core/Container";
 
 const WeatherComponent = (props) => {
     const weather = props.weather;
@@ -140,35 +139,6 @@ const WeatherComponent = (props) => {
         },
         middle: {
             verticalAlign: 'middle'
-        },
-        capitalize: {
-            textTransform: 'capitalize',
-            fontWeight: 'bold'
-        },
-        subComponent: {
-            paddingBottom: '10px',
-        },
-        main: {
-            width: '100%',
-            height: '100%',
-            textAlign: 'center',
-            overflow: 'hidden',
-            zIndex: '1',
-        },
-        fullHeight: {
-            position: 'relative',
-            height: '100%',
-            marginTop: '-100px'
-        },
-        forecastContainer: {
-            display:'flex',
-            marginTop: '10px',
-            width: '100%',
-            overflowX: 'auto',
-            bottom: '0',
-            position: 'absolute',
-            marginBottom: '20px',
-
         }
     }
 
@@ -179,8 +149,8 @@ const WeatherComponent = (props) => {
                 {!imageLoaded && <img className="image thumb" src={image.min} alt=''/>}
                 <img className="image full" src={image.full} alt='' onLoad={() => setImageLoaded(true)}/>
             </div>
-            <div style={styles.main} className="weather-component">
-                <Grid container direction="column" justify="center" alignItems="center" style={styles.fullHeight}>
+            <div className="weather-component main-component">
+                <Grid container direction="column" justify="center" alignItems="center" className="fullHeight">
                     <Grid item>
                         <Typography variant="caption" style={{
                             fontSize: '10pt',
@@ -188,8 +158,7 @@ const WeatherComponent = (props) => {
                         }}>{weather.name}</Typography>
                     </Grid>
                     <Grid item>
-                        <Typography variant="h5" gutterBottom
-                                    style={{...styles.capitalize, marginBottom: '-5px'}}>
+                        <Typography variant="h5" gutterBottom className="capitalize" style={{marginBottom: '-5px'}}>
                             {weather.weather[0].description}
                         </Typography>
                     </Grid>
@@ -231,16 +200,15 @@ const WeatherComponent = (props) => {
                         </Typography>
                     </Grid>
                 </Grid>
-                <div className="hide-scrollbar extra-shadow" style={styles.forecastContainer}>
+                <div className="hide-scrollbar extra-shadow forecastContainer">
                     {todayForecast.map(forecast => (
-                        <div key={forecast.dt} style={{padding: '10px', width: '80px', flexDirection: 'row', justifyContent: 'center', margin: '0 auto'}}>
-                            <div style={{...styles.capitalize, fontSize: '8pt', marginBottom: '5px', minWidth: '90px', textAlign: 'center'}}>
+                        <div key={forecast.dt} className="forecast-content">
+                            <div className="capitalize forecast-title">
                                 {forecast.weather[0].description}
                             </div>
                             <div style={{display:'inline-block', textAlign: 'center'}}>
                                 <img style={{marginBottom: '-10px', marginTop: '-5px', width: '35px'}}
-                                     alt=""
-                                     src={`https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}/>
+                                     alt="" src={`https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}/>
                                 <span style={{
                                     position: "relative",
                                     bottom: '4px'
