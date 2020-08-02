@@ -1,5 +1,5 @@
 import React from 'react'
-import message from "../localization/weather/CurrentWeatherLocal";
+import message from "../localization/weather/WeatherLocal";
 import Api from "../api/Api";
 import WeatherComponent from "./weatherComponent/WeatherComponent";
 import Alert from "@material-ui/lab/Alert";

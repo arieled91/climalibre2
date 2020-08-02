@@ -1,16 +1,17 @@
 import React, {Fragment} from 'react'
-import message from "../../localization/weather/CurrentWeatherLocal";
+import message from "../../localization/weather/WeatherLocal";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
 import './WeatherComponent.css';
 import BackgroundImage from "../backgroundImage/BackgroundImage";
-import {degreesToCardinal, fix} from "../Utils";
+import {degreesToCardinal, fix, getLocalTime} from "../Utils";
 import TodayForecast from "./todayForecast/TodayForecast";
 
-const WeatherComponent = ({weather, ...props}) => {
+const WeatherComponent = ({weather, forecast}) => {
 
     const [todayForecast, setTodayForecast] = React.useState([]);
+    const [nextRain, setNextRain] = React.useState(null);
 
     const tomorrow = () => {
         let date = new Date()
@@ -20,10 +21,12 @@ const WeatherComponent = ({weather, ...props}) => {
     }
 
     React.useEffect(() => {
-        if (props.forecast) {
-            setTodayForecast(props.forecast.list.filter(w => w.dt * 1000 < tomorrow()));//.slice(0, 3));
+        if (forecast) {
+            const forecastForToday = forecast.list.filter(w => w.dt * 1000 < tomorrow());
+            setTodayForecast(forecastForToday);
+            setNextRain(forecastForToday.find(f => f.weather[0].main === 'Rain'));
         }
-    }, [props.forecast])
+    }, [forecast])
 
     const styles = {
         heightSmall: {
@@ -94,6 +97,11 @@ const WeatherComponent = ({weather, ...props}) => {
                             {message.wind}: <strong>{fix(weather.wind.speed) + " km/h " + degreesToCardinal(weather.wind.deg)}</strong>
                         </Typography>
                     </Grid>
+                    {weather.weather[0].main !== 'Rain' && <Grid item>
+                        <Typography variant="body1" gutterBottom>
+                            <b>{nextRain ? message.precipitations(nextRain.weather[0].description, getLocalTime(nextRain.dt * 1000)) : message.noPrecipitations}</b>
+                        </Typography>
+                    </Grid>}
                 </Grid>
                 <div className="hide-scrollbar forecast-container">
                     <TodayForecast forecasts={todayForecast}/>

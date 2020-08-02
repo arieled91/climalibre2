@@ -18,7 +18,9 @@ const message = new LocalizedStrings({
     southWest:"Southwest",
     west:"West",
     northwest:"Northwest",
-    station:"Station"
+    station:"Station",
+    noPrecipitations: "No precipitation expected",
+    precipitations: (description, time) => `Expected ${description} at ${time}`
   },
   es: {
   	loading : "Cargando...",
@@ -37,7 +39,9 @@ const message = new LocalizedStrings({
     southWest:"Sudoeste",
     west:"Oeste",
     northwest:"Noroeste",
-    station:"Estación"
+    station:"Estación",
+    noPrecipitations: "No se esperan precipitaciones",
+    precipitations: (description, time) => `Se espera ${description} a las ${time}`
   }
 });
 

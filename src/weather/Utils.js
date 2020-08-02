@@ -1,4 +1,4 @@
-import message from "../localization/weather/CurrentWeatherLocal";
+import message from "../localization/weather/WeatherLocal";
 
 export const fix = (temp, digits = 0) => {
     return parseFloat(temp).toFixed(digits);
