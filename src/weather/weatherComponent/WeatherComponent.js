@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import './WeatherComponent.css';
 import BackgroundImage from "../backgroundImage/BackgroundImage";
-import {degreesToCardinal, fix, getLocalTime, isDayTime} from "../Utils";
+import {degreesToCardinal, fix, getLocalTime, isDayTime, min} from "../Utils";
 import TodayForecast from "./todayForecast/TodayForecast";
 import WeatherIcon from "./weatherIcon/WeatherIcon";
 
@@ -15,10 +15,14 @@ const WeatherComponent = ({weather, forecast}) => {
     const [nextRain, setNextRain] = React.useState(null);
 
     const tomorrow = () => {
-        let date = new Date()
-        date.setHours(7, 0, 0, 0);
-        date.setDate(date.getDate() + 1)
-        return date;
+        let hours24 = new Date();
+        hours24.setHours(hours24.getHours()+24);
+
+        let tomorrowMorning = new Date()
+        tomorrowMorning.setHours(7, 0, 0, 0);
+        tomorrowMorning.setDate(tomorrowMorning.getDate() + 1);
+
+        return min(hours24, tomorrowMorning);
     }
 
     React.useEffect(() => {

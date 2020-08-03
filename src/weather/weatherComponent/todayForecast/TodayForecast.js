@@ -15,10 +15,9 @@ const TodayForecast = ({weather, forecasts, ...props}) => {
                             <WeatherIcon
                                 isDayTime={isDayTime(weather)}
                                 weatherCode={forecast.weather[0].id}
-                                size="30"
+                                size={30}
                                 color="white"
                             />
-                            {/*<img style={{marginBottom: '-10px', marginTop: '-5px', width: '35px'}} alt="" src={`https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}/>*/}
                             <span className="temp"><strong>{fix(forecast.main.temp) + '°'}</strong></span>
                         </div>
                         <div>

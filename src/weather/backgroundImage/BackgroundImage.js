@@ -74,7 +74,7 @@ const BackgroundImage = ({weather, ...props}) => {
                 return {full: cloudyImg, min: cloudyImgMin};
         }
 
-    }, [isDayTime, weather])
+    }, [isDayTimeWeather, weather])
 
 
     React.useEffect(() => {

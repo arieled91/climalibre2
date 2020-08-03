@@ -1,7 +1,7 @@
 import message from "../localization/weather/WeatherLocal";
 
-export const fix = (temp, digits = 0) => {
-    return parseFloat(temp).toFixed(digits);
+export const fix = (float, digits = 0) => {
+    return parseFloat(float).toFixed(digits);
 }
 
 export const getLocalTime = (time) => {
@@ -30,4 +30,8 @@ export const isDayTime = (weather) => {
     const sunset = weather.sys.sunset * 1000;
     const now = new Date().getTime();
     return now > sunrise && now < sunset;
+}
+
+export const min = (a, b) => {
+    return a <= b ? a : b
 }
