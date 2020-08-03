@@ -7,12 +7,11 @@ import WeatherIcon from "../weatherIcon/WeatherIcon";
 const TodayForecast = ({weather, forecasts, ...props}) => {
 
     return (
-        <Fragment>
+        <div className="today-forecast">
             {forecasts.map(forecast => (
                 <Fragment  key={forecast.dt}>
-                    <div className="forecast-background"/>
                     <div className="forecast-content">
-                        <div style={{display:'inline-block', textAlign: 'center'}}>
+                        <div style={{display:'flex', textAlign: 'center'}}>
                             <WeatherIcon
                                 isDayTime={isDayTime(weather)}
                                 weatherCode={forecast.weather[0].id}
@@ -28,7 +27,7 @@ const TodayForecast = ({weather, forecasts, ...props}) => {
                     </div>
                 </Fragment>
             ))}
-        </Fragment>
+        </div>
     )
 }
 
