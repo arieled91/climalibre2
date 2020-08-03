@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6887210b53260f135fd071b980033eb4",
+    "revision": "c66017e7d738cb954e57d69993fc8ea5",
     "url": "/climalibre2/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/climalibre2/static/css/2.8a204d60.chunk.css"
   },
   {
-    "revision": "7ac88c7637ea250cfb27",
+    "revision": "92cc532dfb006445177b",
     "url": "/climalibre2/static/css/main.c9a065b1.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/climalibre2/static/js/2.e6797bca.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7ac88c7637ea250cfb27",
-    "url": "/climalibre2/static/js/main.9dc3292b.chunk.js"
+    "revision": "92cc532dfb006445177b",
+    "url": "/climalibre2/static/js/main.aa723bb2.chunk.js"
   },
   {
     "revision": "6dabf8c63beadd26522b",
