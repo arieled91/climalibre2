@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9f3f43059ee54d8a3cfd92ec2c707dc7",
+    "revision": "1627ed24030cb7fd7f1ca98379c80bbb",
     "url": "/climalibre2/index.html"
   },
   {
-    "revision": "876d6b9d16bc29689602",
+    "revision": "1a76bb4d19408de49156",
     "url": "/climalibre2/static/css/2.8a204d60.chunk.css"
   },
   {
-    "revision": "9809b5f7389243322e55",
-    "url": "/climalibre2/static/css/main.37214bfb.chunk.css"
+    "revision": "fad397d20a6ac3729a33",
+    "url": "/climalibre2/static/css/main.2e8a50c5.chunk.css"
   },
   {
-    "revision": "876d6b9d16bc29689602",
-    "url": "/climalibre2/static/js/2.a7aa3f96.chunk.js"
+    "revision": "1a76bb4d19408de49156",
+    "url": "/climalibre2/static/js/2.e6797bca.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/climalibre2/static/js/2.a7aa3f96.chunk.js.LICENSE.txt"
+    "url": "/climalibre2/static/js/2.e6797bca.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9809b5f7389243322e55",
-    "url": "/climalibre2/static/js/main.63cd18c1.chunk.js"
+    "revision": "fad397d20a6ac3729a33",
+    "url": "/climalibre2/static/js/main.d5e432b4.chunk.js"
   },
   {
     "revision": "6dabf8c63beadd26522b",
