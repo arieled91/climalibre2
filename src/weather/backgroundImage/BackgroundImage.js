@@ -32,24 +32,22 @@ import coveredNightImg from "../../assets/covered-night.jpg";
 import rainyNightImg from "../../assets/rainy-night.jpg";
 
 import "./BackgroundImage.css"
+import {isDayTime} from "../Utils";
 
 const BackgroundImage = ({weather, ...props}) => {
 
     const [image, setImage] = React.useState({min: '', full: ''});
     const [imageLoaded, setImageLoaded] = React.useState(false);
 
-    const isDayTime = React.useCallback(() => {
-        const sunrise = weather.sys.sunrise * 1000;
-        const sunset = weather.sys.sunset * 1000;
-        const now = new Date().getTime();
-        return now > sunrise && now < sunset;
+    const isDayTimeWeather = React.useCallback(() => {
+        return isDayTime(weather)
     }, [weather])
 
     const calculateImage = React.useCallback(() => {
         if (!weather) return null;
         const id = weather.weather[0].id;
         const code = ('' + id)[0];
-        const day = isDayTime();
+        const day = isDayTimeWeather();
 
         switch (code) {
             case '2':

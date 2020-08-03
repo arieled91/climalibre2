@@ -24,3 +24,10 @@ export const degreesToCardinal = (deg) => {
 
     return cardinals[parseFloat((deg % 360) / 45).toFixed(0)];
 }
+
+export const isDayTime = (weather) => {
+    const sunrise = weather.sys.sunrise * 1000;
+    const sunset = weather.sys.sunset * 1000;
+    const now = new Date().getTime();
+    return now > sunrise && now < sunset;
+}

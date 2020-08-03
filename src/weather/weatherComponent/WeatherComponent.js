@@ -5,8 +5,9 @@ import Grid from "@material-ui/core/Grid";
 
 import './WeatherComponent.css';
 import BackgroundImage from "../backgroundImage/BackgroundImage";
-import {degreesToCardinal, fix, getLocalTime} from "../Utils";
+import {degreesToCardinal, fix, getLocalTime, isDayTime} from "../Utils";
 import TodayForecast from "./todayForecast/TodayForecast";
+import WeatherIcon from "./weatherIcon/WeatherIcon";
 
 const WeatherComponent = ({weather, forecast}) => {
 
@@ -64,8 +65,12 @@ const WeatherComponent = ({weather, forecast}) => {
                         <Grid container spacing={2} justify="center" alignItems="center">
                             <Grid item>
                                 <Typography variant='h4' style={styles.temp}>
-                                    <img alt=""
-                                         src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}/>
+                                    {/*<img alt="" src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}/>*/}
+                                    <WeatherIcon
+                                        isDayTime={isDayTime(weather)}
+                                        weatherCode={weather.weather[0].id}
+                                        color="white"
+                                    />
                                     {fix(weather.main.temp) + "°C"}
                                 </Typography>
                             </Grid>
@@ -104,7 +109,7 @@ const WeatherComponent = ({weather, forecast}) => {
                     </Grid>}
                 </Grid>
                 <div className="hide-scrollbar forecast-container">
-                    <TodayForecast forecasts={todayForecast}/>
+                    <TodayForecast weather={weather} forecasts={todayForecast}/>
                 </div>
             </div>
         </Fragment>
