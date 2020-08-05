@@ -1,10 +1,14 @@
 import LocalizedStrings from 'react-localization';
 
-export let local = new LocalizedStrings({
+const local = new LocalizedStrings({
 	en:{
+		lang : "en",
 		title : "Open Weather"
 	},
 	es: {
+		lang : "es",
 		title : "Clima Libre"
 	}
 });
+
+export default local;
