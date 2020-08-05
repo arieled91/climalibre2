@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
 import ReactAnimatedWeather from 'react-animated-weather';
+import PropTypes, {number} from "prop-types";
 
 const WeatherIcon = ({isDayTime = true, weatherCode, ...props}) => {
 
@@ -50,6 +51,11 @@ const WeatherIcon = ({isDayTime = true, weatherCode, ...props}) => {
             />}
         </Fragment>
     )
+}
+
+WeatherIcon.propTypes = {
+    isDayTime: PropTypes.bool,
+    weatherCode: number,
 }
 
 export default WeatherIcon;
