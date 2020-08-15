@@ -82,14 +82,14 @@ const WeatherComponent = ({weather, forecast}) => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Grid container direction="column" justify="center" alignItems="center">
-                  <Grid item style={{fontSize: '20pt'}}>
-                    {fix(weather.main.temp_max) + '°'}
-                  </Grid>
-                  <Grid item style={{fontSize: '20pt'}}>
-                    {fix(weather.main.temp_min) + '°'}
-                  </Grid>
-                </Grid>
+                {/*<Grid container direction="column" justify="center" alignItems="center">*/}
+                {/*  <Grid item style={{fontSize: '20pt'}}>*/}
+                {/*    {fix(weather.main.temp_max) + '°'}*/}
+                {/*  </Grid>*/}
+                {/*  <Grid item style={{fontSize: '20pt'}}>*/}
+                {/*    {fix(weather.main.temp_min) + '°'}*/}
+                {/*  </Grid>*/}
+                {/*</Grid>*/}
               </Grid>
             </Grid>
           </Grid>

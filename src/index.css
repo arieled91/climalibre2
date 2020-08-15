@@ -15,3 +15,11 @@ code {
 .capitalize {
   text-transform: capitalize;
 }
+
+html {
+  box-sizing: border-box;
+  background-color: #404040;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}

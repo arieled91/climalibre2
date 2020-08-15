@@ -1,6 +1,6 @@
 import React from 'react';
 import Alert from '@material-ui/lab/Alert';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import message from '../localization/weather/WeatherLocal';
 import Api from '../api/Api';
 import WeatherComponent from './weatherComponent/WeatherComponent';
@@ -115,9 +115,13 @@ const Weather = () => {
           {` ${message.geolocationRequest}`}
         </Alert>
       )}
-      {weather ?
-        <WeatherComponent weather={weather} forecast={forecast} /> :
-        permission !== Permission.DENIED && <LinearProgress />}
+      {weather && <WeatherComponent weather={weather} forecast={forecast} />}
+
+      {!weather && permission !== Permission.DENIED &&
+      <div style={{display: 'flex', justifyContent: 'center', position: 'relative', top: '50%'}}>
+        <CircularProgress/>
+      </div>}
+
     </div>
   );
 };
