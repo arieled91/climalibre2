@@ -86,8 +86,9 @@ const BackgroundImage = ({weather}) => {
 
   return (
     <div>
-      {!imageLoaded && <img className="image thumb" src={image.min} alt=''/>}
-      <img className="image full" src={image.full} alt='' onLoad={() => setImageLoaded(true)}/>
+      {imageLoaded ?
+        <img className="image full" src={image.full} alt='' onLoad={() => setImageLoaded(true)}/>
+        : <img className="image thumb" src={image.min} alt=''/>}
     </div>
   );
 };

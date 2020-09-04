@@ -20,17 +20,16 @@ const Weather = () => {
   const handlePermission = () => {
     navigator.permissions.query({name: 'geolocation'}).then((result) => {
       setPermission(result.state);
-      // eslint-disable-next-line no-param-reassign
       result.onchange = () => setPermission(result.state);
     });
   };
 
   const getWeatherByCoords = (lat, lon) => {
     Api.getWeatherByCoords(lat, lon, message.getLanguage())
-        .then((_weather) => setWeather(_weather))
-        .catch((_error) => {
-          setError(_error.message);
-          console.log(_error);
+        .then((w) => setWeather(w))
+        .catch((e) => {
+          setError(e.message);
+          console.log(e);
         });
 
     Api.getForecastByCoords(lat, lon, message.getLanguage())
