@@ -1,6 +1,5 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import message from '../../localization/weather/WeatherLocal';
-import Typography from '@material-ui/core/Typography';
 
 import styles from './WeatherComponent.module.css';
 import BackgroundImage from '../backgroundImage/BackgroundImage';
@@ -36,60 +35,53 @@ const WeatherComponent = ({weather, forecast}) => {
     return message.precipitations(nextRainForecast.weather[0].description, getLocalTime(nextRain.dt * 1000));
   }
 
+  const dateTime = () => {
+    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    return new Date().toLocaleString(message.locale, options);
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.bg}>
         <BackgroundImage weather={weather}/>
       </div>
+
+
       <div className={classes(styles.weatherComponent, styles.mainComponent)}>
+
+        <div className={styles.date}>{dateTime()}</div>
+
         <div className={styles.currentWeather}>
-          <div>
-            <Typography variant="caption" style={{
-              fontSize: '10pt',
-              color: 'rgba(255,255,255,0.69)',
-            }}>{weather.name}</Typography>
-          </div>
-          <div className={styles.capitalize}>
-            <Typography variant="h5" gutterBottom style={{marginBottom: '-5px'}}>
-              <b>{weather.weather[0].description}</b>
-            </Typography>
-          </div>
-          <div>
-            <div>
-              <div >
-                <div className={styles.temp}>
-                  <WeatherIcon
-                    isDayTime={isDayTime(weather)}
-                    weatherCode={weather.weather[0].id}
-                    color="white"
-                  />
-                  {fix(weather.main.temp) + '°C'}
-                </div>
-              </div>
-            </div>
+          <div className={classes(styles.item, styles.address)}>
+            {weather.name}
           </div>
 
-          <div>
-            <Typography variant="body1" gutterBottom>
+          <div className={styles.description}>
+              <b>{weather.weather[0].description}</b>
+          </div>
+
+          <div className={styles.temp}>
+            <WeatherIcon
+              isDayTime={isDayTime(weather)}
+              weatherCode={weather.weather[0].id}
+              color="white"
+            />
+            {fix(weather.main.temp) + '°C'}
+          </div>
+
+          <div className={styles.item}>
               {message.feelsLike}: <strong>{fix(weather.main.feels_like) + 'º'}</strong>
-            </Typography>
           </div>
-          <div>
-            <Typography variant="body1" gutterBottom>
+          <div className={styles.item}>
               {message.humidity}: <strong>{fix(weather.main.humidity) + '%'}</strong>
-            </Typography>
           </div>
-          <div>
-            <Typography variant="body1" gutterBottom>
+          <div className={styles.item}>
               {message.wind}: <strong>{
                 fix(weather.wind.speed) + ' km/h ' + degreesToCardinal(weather.wind.deg)
               }</strong>
-            </Typography>
           </div>
-          {weather.weather[0].main !== 'Rain' && <div>
-            <Typography variant="body1" gutterBottom>
+          {weather.weather[0].main !== 'Rain' && <div className={styles.item}>
               <b>{nextRain ? nextRainMessage(nextRain) : message.noPrecipitations}</b>
-            </Typography>
           </div>}
         </div>
         <div className={classes(styles.hideScrollbar, styles.forecastContainer)}>

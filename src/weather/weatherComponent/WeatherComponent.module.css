@@ -10,12 +10,18 @@
                  0 4px 10px rgba(0,0,0,1);
 }
 
-.capitalize {
+.description {
     text-transform: capitalize;
+    font-size: 18pt;
 }
 
 .hideScrollbar::-webkit-scrollbar {
     display: none;
+}
+
+.date {
+    color: whitesmoke;
+    padding-top: 20px;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
@@ -43,7 +49,16 @@
     justify-content: center;
     height: 100%;
     width: 100%;
-    top: -12%;
+    top: -17%;
+}
+
+.item {
+   padding: 5px;
+}
+
+.address {
+    font-size: 10pt;
+    color: rgba(255,255,255,0.69);
 }
 
 .mainComponent {

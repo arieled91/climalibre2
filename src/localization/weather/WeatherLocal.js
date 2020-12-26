@@ -2,6 +2,7 @@ import LocalizedStrings from 'react-localization';
 
 const message = new LocalizedStrings({
   en: {
+    locale: 'en',
     loading: "Loading...",
     humidity: "Humidity",
     feelsLike: "Feels Like",
@@ -23,6 +24,7 @@ const message = new LocalizedStrings({
     precipitations: (description, time) => `Expected ${description} at ${time}`
   },
   es: {
+    locale: 'es',
     loading: "Cargando...",
     humidity: "Humedad",
     feelsLike: "Sensación térmica",
