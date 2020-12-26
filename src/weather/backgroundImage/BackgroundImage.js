@@ -87,7 +87,7 @@ const BackgroundImage = ({weather}) => {
   return (
     <div className={styles.container}>
       <img className={classes(styles.image, styles.thumb, imageLoaded ? styles.hidden : '')} src={image.min} alt=''/>
-      <img className={styles.image}
+      <img className={classes(styles.image, !imageLoaded ? styles.hidden : '')}
            src={image.full} alt=''
            onLoad={() => setImageLoaded(true)}
       />
