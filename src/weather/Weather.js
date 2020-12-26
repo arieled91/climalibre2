@@ -4,6 +4,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import message from '../localization/weather/WeatherLocal';
 import Api from '../api/Api';
 import WeatherComponent from './weatherComponent/WeatherComponent';
+import styles from './Weather.module.css'
 
 const Weather = () => {
   const [weather, setWeather] = React.useState(null);
@@ -106,7 +107,7 @@ const Weather = () => {
   });
 
   return (
-    <div style={{height: '100%', width: '100%'}}>
+    <div className={styles.container}>
       {error && <Alert severity="error">{error}</Alert>}
       {!weather && permission === Permission.PROMPT && (
         <Alert severity="info">

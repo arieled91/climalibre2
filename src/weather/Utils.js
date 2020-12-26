@@ -33,3 +33,5 @@ export const isDayTime = (weather) => {
 };
 
 export const min = (a, b) => (a <= b ? a : b);
+
+export const classes = (...classes) => classes.join(' ');

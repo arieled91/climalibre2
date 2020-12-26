@@ -1,4 +1,4 @@
-.forecast-content {
+.forecastContent {
     padding: 15px 0 15px 0;
     width: 70px;
     flex-direction: row;
@@ -7,13 +7,13 @@
     z-index: 10;
 }
 
-.today-forecast {
+.todayForecast {
     display: flex;
     flex-flow: row;
     margin: 0 auto 0 auto;
 }
 
-.forecast-title {
+.forecastTitle {
     font-size: 8pt;
     margin-bottom: 5px;
     min-width: 90px;
@@ -21,7 +21,7 @@
     font-weight: bold;
 }
 
-.extra-shadow {
+.extraShadow {
     color: #ffffff;
     text-shadow: 0 2px 3px rgba(0,0,0,0.8),
     0 4px 13px rgba(0,0,0,0.2),

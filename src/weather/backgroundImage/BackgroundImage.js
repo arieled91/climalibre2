@@ -31,8 +31,8 @@ import snowNightImg from '../../assets/snow-night.jpg';
 import coveredNightImg from '../../assets/covered-night.jpg';
 import rainyNightImg from '../../assets/rainy-night.jpg';
 
-import './BackgroundImage.css';
-import {isDayTime} from '../Utils';
+import styles from './BackgroundImage.module.css';
+import {classes, isDayTime} from '../Utils';
 import {Weather} from "../WeatherModel";
 
 const BackgroundImage = ({weather}) => {
@@ -85,13 +85,12 @@ const BackgroundImage = ({weather}) => {
   }, [calculateImage, weather]);
 
   return (
-    <div>
-      {imageLoaded && <img className="image thumb" src={image.min} alt=''/>}
-      <img className="image full"
-           style={imageLoaded ? {} : {visibility: 'hidden'}}
+    <div className={styles.container}>
+      <img className={classes(styles.image, styles.thumb, imageLoaded ? styles.hidden : '')} src={image.min} alt=''/>
+      <img className={styles.image}
            src={image.full} alt=''
-           onLoad={() => setImageLoaded(true)
-      }/>
+           onLoad={() => setImageLoaded(true)}
+      />
     </div>
   );
 };

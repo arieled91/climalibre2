@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import ReactAnimatedWeather from 'react-animated-weather';
 import PropTypes, {number} from "prop-types";
 
@@ -44,12 +44,12 @@ const WeatherIcon = ({isDayTime = true, weatherCode, ...props}) => {
     }, [weatherCode, isDayTime])
 
     return (
-        <Fragment>
+        <div className='icon-container'>
             {icon && <ReactAnimatedWeather id="canvas"
                 icon={icon}
                 {...props}
             />}
-        </Fragment>
+        </div>
     )
 }
 

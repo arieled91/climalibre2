@@ -1,11 +1,10 @@
 import React, {Fragment} from 'react';
 import message from '../../localization/weather/WeatherLocal';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 
-import './WeatherComponent.css';
+import styles from './WeatherComponent.module.css';
 import BackgroundImage from '../backgroundImage/BackgroundImage';
-import {degreesToCardinal, fix, getLocalTime, isDayTime, min} from '../Utils';
+import {classes, degreesToCardinal, fix, getLocalTime, isDayTime, min} from '../Utils';
 import TodayForecast from './todayForecast/TodayForecast';
 import WeatherIcon from './weatherIcon/WeatherIcon';
 import {Forecast, Weather} from "../WeatherModel";
@@ -37,81 +36,67 @@ const WeatherComponent = ({weather, forecast}) => {
     return message.precipitations(nextRainForecast.weather[0].description, getLocalTime(nextRain.dt * 1000));
   }
 
-  const styles = {
-    heightSmall: {
-      height: '15px',
-    },
-    heightMedium: {
-      height: '28px',
-    },
-    temp: {
-      fontSize: '55pt',
-      verticalAlign: 'middle',
-    },
-    middle: {
-      verticalAlign: 'middle',
-    },
-  };
-
   return (
-    <Fragment>
-      <BackgroundImage weather={weather}/>
-      <div className="weather-component main-component">
-        <Grid container direction="column" justify="center" alignItems="center" className="fullHeight">
-          <Grid item>
+    <div className={styles.container}>
+      <div className={styles.bg}>
+        <BackgroundImage weather={weather}/>
+      </div>
+      <div className={classes(styles.weatherComponent, styles.mainComponent)}>
+        <div className={styles.currentWeather}>
+          <div>
             <Typography variant="caption" style={{
               fontSize: '10pt',
               color: 'rgba(255,255,255,0.69)',
             }}>{weather.name}</Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h5" gutterBottom className="capitalize" style={{marginBottom: '-5px'}}>
+          </div>
+          <div className={styles.capitalize}>
+            <Typography variant="h5" gutterBottom style={{marginBottom: '-5px'}}>
               <b>{weather.weather[0].description}</b>
             </Typography>
-          </Grid>
-          <Grid item>
-            <Grid container spacing={2} justify="center" alignItems="center">
-              <Grid item>
-                <Typography variant='h4' style={styles.temp}>
+          </div>
+          <div>
+            <div>
+              <div >
+                <div className={styles.temp}>
                   <WeatherIcon
                     isDayTime={isDayTime(weather)}
                     weatherCode={weather.weather[0].id}
                     color="white"
                   />
                   {fix(weather.main.temp) + '°C'}
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <Grid item>
+          <div>
             <Typography variant="body1" gutterBottom>
               {message.feelsLike}: <strong>{fix(weather.main.feels_like) + 'º'}</strong>
             </Typography>
-          </Grid>
-          <Grid item>
+          </div>
+          <div>
             <Typography variant="body1" gutterBottom>
               {message.humidity}: <strong>{fix(weather.main.humidity) + '%'}</strong>
             </Typography>
-          </Grid>
-          <Grid item>
+          </div>
+          <div>
             <Typography variant="body1" gutterBottom>
               {message.wind}: <strong>{
                 fix(weather.wind.speed) + ' km/h ' + degreesToCardinal(weather.wind.deg)
               }</strong>
             </Typography>
-          </Grid>
-          {weather.weather[0].main !== 'Rain' && <Grid item>
+          </div>
+          {weather.weather[0].main !== 'Rain' && <div>
             <Typography variant="body1" gutterBottom>
               <b>{nextRain ? nextRainMessage(nextRain) : message.noPrecipitations}</b>
             </Typography>
-          </Grid>}
-        </Grid>
-        <div className="hide-scrollbar forecast-container">
+          </div>}
+        </div>
+        <div className={classes(styles.hideScrollbar, styles.forecastContainer)}>
           <TodayForecast weather={weather} forecasts={todayForecast}/>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

@@ -1,21 +1,30 @@
-.weather-component {
+.container{
+    position: relative;
+    height: 100%;
+}
+
+.weatherComponent {
     color: #ffffff;
     text-shadow: 0 2px 3px rgba(0,0,0,0.8),
                  0 4px 13px rgba(0,0,0,0.2),
                  0 4px 10px rgba(0,0,0,1);
 }
 
-.hide-scrollbar::-webkit-scrollbar {
+.capitalize {
+    text-transform: capitalize;
+}
+
+.hideScrollbar::-webkit-scrollbar {
     display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.hide-scrollbar {
+.hideScrollbar {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
 
-.forecast-container {
+.forecastContainer {
     display: flex;
     margin-top: 10px;
     width: 100%;
@@ -27,16 +36,34 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.fullHeight {
-    position: absolute;
+.currentWeather {
+    position: relative;
+    display: grid;
+    align-content: center;
+    justify-content: center;
     height: 100%;
+    width: 100%;
     top: -12%;
 }
 
-.main-component {
+.mainComponent {
     width: 100%;
     height: 100%;
     text-align: center;
     overflow: hidden;
-    z-index: 1;
+}
+
+.temp {
+    display: flex;
+    font-size: 55pt;
+    align-items: center;
+}
+
+.bg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }

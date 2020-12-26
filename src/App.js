@@ -6,7 +6,7 @@ import local from "./localization/AppLocal";
 
 function App() {
   return (
-    <div className="App" lang={local.lang}>
+    <div className="app" lang={local.lang}>
       <Weather/>
     </div>
   );
