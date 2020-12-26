@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactAnimatedWeather from 'react-animated-weather';
 import PropTypes, {number} from "prop-types";
+import styles from "./WeatherIcon.module.css";
 
 const WeatherIcon = ({isDayTime = true, weatherCode, ...props}) => {
 
@@ -44,7 +45,7 @@ const WeatherIcon = ({isDayTime = true, weatherCode, ...props}) => {
     }, [weatherCode, isDayTime])
 
     return (
-        <div className='icon-container'>
+        <div className={styles.container}>
             {icon && <ReactAnimatedWeather id="canvas"
                 icon={icon}
                 {...props}
