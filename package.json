@@ -1,22 +1,22 @@
 {
   "name": "climalibre2",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "homepage": "/climalibre2/",
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/lab": "^4.0.0-alpha.56",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.19.2",
-    "fontsource-roboto": "^2.2.6",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.0",
+    "axios": "^0.21.1",
+    "fontsource-roboto": "^4.0.0",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
+    "react": "^17.0.1",
     "react-animated-weather": "^4.0.1",
-    "react-dom": "^16.13.1",
+    "react-dom": "^17.0.1",
     "react-localization": "^1.0.15",
-    "react-scripts": "3.4.1"
+    "react-scripts": "4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,8 +44,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.6.0",
-    "eslint-plugin-react": "^7.20.5",
+    "eslint": "^7.16.0",
+    "eslint-plugin-react": "^7.21.5",
     "gh-pages": "^3.1.0"
   }
 }
