@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/climalibre2/static/css/main.febb839b.chunk.css",
+    "main.css": "/climalibre2/static/css/main.04742e21.chunk.css",
     "main.js": "/climalibre2/static/js/main.b13e4916.chunk.js",
     "main.js.map": "/climalibre2/static/js/main.b13e4916.chunk.js.map",
     "runtime-main.js": "/climalibre2/static/js/runtime-main.4cc933bf.js",
@@ -9,10 +9,10 @@
     "static/js/2.75dc9aec.chunk.js": "/climalibre2/static/js/2.75dc9aec.chunk.js",
     "static/js/2.75dc9aec.chunk.js.map": "/climalibre2/static/js/2.75dc9aec.chunk.js.map",
     "index.html": "/climalibre2/index.html",
-    "precache-manifest.bb0cdbdcaaf91fafcb900861583e3aff.js": "/climalibre2/precache-manifest.bb0cdbdcaaf91fafcb900861583e3aff.js",
+    "precache-manifest.787cbce541f71fff296881e220a71101.js": "/climalibre2/precache-manifest.787cbce541f71fff296881e220a71101.js",
     "service-worker.js": "/climalibre2/service-worker.js",
     "static/css/2.8a204d60.chunk.css.map": "/climalibre2/static/css/2.8a204d60.chunk.css.map",
-    "static/css/main.febb839b.chunk.css.map": "/climalibre2/static/css/main.febb839b.chunk.css.map",
+    "static/css/main.04742e21.chunk.css.map": "/climalibre2/static/css/main.04742e21.chunk.css.map",
     "static/js/2.75dc9aec.chunk.js.LICENSE.txt": "/climalibre2/static/js/2.75dc9aec.chunk.js.LICENSE.txt",
     "static/media/clear-sky-night-min.jpg": "/climalibre2/static/media/clear-sky-night-min.38b1b49c.jpg",
     "static/media/clear-sky-night.jpg": "/climalibre2/static/media/clear-sky-night.f323ee0a.jpg",
@@ -50,7 +50,7 @@
     "static/js/runtime-main.4cc933bf.js",
     "static/css/2.8a204d60.chunk.css",
     "static/js/2.75dc9aec.chunk.js",
-    "static/css/main.febb839b.chunk.css",
+    "static/css/main.04742e21.chunk.css",
     "static/js/main.b13e4916.chunk.js"
   ]
 }
