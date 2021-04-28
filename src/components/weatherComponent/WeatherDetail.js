@@ -1,14 +1,14 @@
 import React from 'react';
 import message from '../../localization/weather/WeatherLocal';
 
-import styles from './WeatherComponent.module.css';
+import styles from './WeatherDetail.module.css';
 import BackgroundImage from '../backgroundImage/BackgroundImage';
-import {classes, degreesToCardinal, fix, getLocalTime, isDayTime, min} from '../Utils';
+import {classes, degreesToCardinal, fix, getLocalTime, isDayTime, min} from '../../utils/Util';
 import TodayForecast from './todayForecast/TodayForecast';
 import WeatherIcon from './weatherIcon/WeatherIcon';
-import {Forecast, Weather} from "../WeatherModel";
+import {Forecast, Weather} from '../WeatherModel';
 
-const WeatherComponent = ({weather, forecast}) => {
+const WeatherDetail = ({weather, forecast}) => {
   const [todayForecast, setTodayForecast] = React.useState([]);
   const [nextRain, setNextRain] = React.useState(null);
 
@@ -33,12 +33,12 @@ const WeatherComponent = ({weather, forecast}) => {
 
   const nextRainMessage = (nextRainForecast) => {
     return message.precipitations(nextRainForecast.weather[0].description, getLocalTime(nextRain.dt * 1000));
-  }
+  };
 
   const dateTime = () => {
-    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    const options = {weekday: 'long', month: 'long', day: 'numeric'};
     return new Date().toLocaleString(message.locale, options);
-  }
+  };
 
   return (
     <div className={styles.container}>
@@ -57,7 +57,7 @@ const WeatherComponent = ({weather, forecast}) => {
           </div>
 
           <div className={styles.description}>
-              <b>{weather.weather[0].description}</b>
+            <b>{weather.weather[0].description}</b>
           </div>
 
           <div className={styles.temp}>
@@ -70,18 +70,18 @@ const WeatherComponent = ({weather, forecast}) => {
           </div>
 
           <div className={styles.item}>
-              {message.feelsLike}: <strong>{fix(weather.main.feels_like) + 'º'}</strong>
+            {message.feelsLike}: <strong>{fix(weather.main.feels_like) + 'º'}</strong>
           </div>
           <div className={styles.item}>
-              {message.humidity}: <strong>{fix(weather.main.humidity) + '%'}</strong>
+            {message.humidity}: <strong>{fix(weather.main.humidity) + '%'}</strong>
           </div>
           <div className={styles.item}>
-              {message.wind}: <strong>{
-                fix(weather.wind.speed) + ' km/h ' + degreesToCardinal(weather.wind.deg)
-              }</strong>
+            {message.wind}: <strong>{
+              fix(weather.wind.speed) + ' km/h ' + degreesToCardinal(weather.wind.deg)
+            }</strong>
           </div>
-          {weather.weather[0].main !== 'Rain' && <div className={styles.item}>
-              <b>{nextRain ? nextRainMessage(nextRain) : message.noPrecipitations}</b>
+          {weather.weather[0].main !== 'Rain' && todayForecast.length > 0 && <div className={styles.item}>
+            <b>{nextRain ? nextRainMessage(nextRain) : message.noPrecipitations}</b>
           </div>}
         </div>
         <div className={classes(styles.hideScrollbar, styles.forecastContainer)}>
@@ -92,9 +92,9 @@ const WeatherComponent = ({weather, forecast}) => {
   );
 };
 
-WeatherComponent.propTypes = {
+WeatherDetail.propTypes = {
   weather: Weather,
-  forecast: Forecast,
+  forecast: Forecast
 };
 
-export default WeatherComponent;
+export default WeatherDetail;

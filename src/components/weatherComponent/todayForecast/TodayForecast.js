@@ -1,10 +1,10 @@
 import React, {Fragment} from 'react';
-import {fix, getLocalTime, isDayTime} from '../../Utils';
+import {fix, getLocalTime, isDayTime} from '../../../utils/Util';
 
 import styles from './TodayForecast.module.css';
 import WeatherIcon from '../weatherIcon/WeatherIcon';
-import {Weather} from "../../WeatherModel";
-import PropTypes from "prop-types";
+import {Weather} from '../../WeatherModel';
+import PropTypes from 'prop-types';
 
 const TodayForecast = ({weather, forecasts}) => {
   return (
@@ -35,7 +35,7 @@ const TodayForecast = ({weather, forecasts}) => {
 
 TodayForecast.propTypes = {
   weather: Weather,
-  forecasts: PropTypes.array,
-}
+  forecasts: PropTypes.array
+};
 
 export default TodayForecast;

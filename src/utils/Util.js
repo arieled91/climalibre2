@@ -4,7 +4,7 @@ export const fix = (float, digits = 0) => parseFloat(float).toFixed(digits);
 
 export const getLocalTime = (time) => {
   const stringTime = new Date(time).toLocaleTimeString(
-      [], {hour: '2-digit', minute: '2-digit', hour12: false},
+    [], {hour: '2-digit', minute: '2-digit', hour12: false}
   );
   return stringTime.charAt(0) === '0' ? stringTime.substr(1) : stringTime;
 };
@@ -19,7 +19,7 @@ export const degreesToCardinal = (deg) => {
     message.southWest,
     message.west,
     message.northwest,
-    message.north,
+    message.north
   ];
 
   return cardinals[parseFloat((deg % 360) / 45).toFixed(0)];

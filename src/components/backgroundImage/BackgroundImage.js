@@ -32,8 +32,8 @@ import coveredNightImg from '../../assets/covered-night.jpg';
 import rainyNightImg from '../../assets/rainy-night.jpg';
 
 import styles from './BackgroundImage.module.css';
-import {classes, isDayTime} from '../Utils';
-import {Weather} from "../WeatherModel";
+import {classes, isDayTime} from '../../utils/Util';
+import {Weather} from '../WeatherModel';
 
 const BackgroundImage = ({weather}) => {
   const [image, setImage] = React.useState({min: '', full: ''});
@@ -64,13 +64,13 @@ const BackgroundImage = ({weather}) => {
         if (id === 800 || id === 801) {
           return day ? {full: sunnyImg, min: sunnyImgMin} : {
             full: clearSkyNightImg,
-            min: clearSkyNightImgMin,
+            min: clearSkyNightImgMin
           };
         }
         if (id === 802 || id === 803) {
           return day ? {
             full: cloudyImg,
-            min: cloudyImgMin,
+            min: cloudyImgMin
           } : {full: cloudySkyNightImg, min: cloudySkyNightImgMin};
         }
         return day ? {full: coveredImg, min: coveredImgMin} : {full: coveredNightImg, min: coveredNightImgMin};
@@ -88,15 +88,15 @@ const BackgroundImage = ({weather}) => {
     <div className={styles.container}>
       <img className={classes(styles.image, styles.thumb, imageLoaded ? styles.hidden : '')} src={image.min} alt=''/>
       <img className={classes(styles.image, !imageLoaded ? styles.hidden : '')}
-           src={image.full} alt=''
-           onLoad={() => setImageLoaded(true)}
+        src={image.full} alt=''
+        onLoad={() => setImageLoaded(true)}
       />
     </div>
   );
 };
 
 BackgroundImage.propTypes = {
-  weather: Weather,
-}
+  weather: Weather
+};
 
 export default BackgroundImage;
