@@ -30,7 +30,7 @@
     scrollbar-width: none;  /* Firefox */
 }
 
-.forecastContainer {
+.forecast {
     display: flex;
     margin-top: 10px;
     width: 100%;
@@ -38,8 +38,15 @@
     bottom: 0;
     position: absolute;
     padding-bottom: 3px;
-    backdrop-filter: blur(3px);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* apply backdrop-filter if browser supports it */
+@supports (backdrop-filter: none) {
+    .forecast {
+        backdrop-filter: blur(3px);
+        background: rgba(0, 0, 0, 0.1);
+    }
 }
 
 .currentWeather {

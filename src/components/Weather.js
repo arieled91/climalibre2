@@ -2,7 +2,7 @@ import React from 'react';
 import Alert from '@material-ui/lab/Alert';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import message from '../localization/weather/WeatherLocal';
-import WeatherDetail from './weatherComponent/WeatherDetail';
+import WeatherDetail from './weatherDetail/WeatherDetail';
 import styles from './Weather.module.css';
 import {findByCity, findByCoords, getPosition} from '../handlers/weather.handler';
 import {getIpLocation} from '../services/weather.service';
@@ -17,8 +17,8 @@ const Weather = () => {
     handlePermission();
   }, []);
 
-  React.useEffect( async () => {
-    await populate();
+  React.useEffect( () => {
+    populate().then();
   }, [permission]);
 
   const handlePermission = () => {

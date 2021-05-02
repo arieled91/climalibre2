@@ -1,4 +1,4 @@
-.forecastContent {
+.content {
     padding: 15px 0 15px 0;
     width: 70px;
     flex-direction: row;
@@ -7,7 +7,12 @@
     z-index: 10;
 }
 
-.todayForecast {
+.firstRow {
+    display: flex;
+    text-align: center;
+}
+
+.container {
     display: flex;
     flex-flow: row;
     margin: 0 auto 0 auto;

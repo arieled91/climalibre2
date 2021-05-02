@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
 
 const TodayForecast = ({weather, forecasts}) => {
   return (
-    <div className={styles.todayForecast}>
+    <div className={styles.container}>
       {forecasts.map((forecast) => (
         <Fragment key={forecast.dt}>
-          <div className={styles.forecastContent}>
-            <div style={{display: 'flex', textAlign: 'center'}}>
+          <div className={styles.content}>
+            <div className={styles.firstRow}>
               <WeatherIcon
                 isDayTime={isDayTime(weather)}
                 weatherCode={forecast.weather[0].id}

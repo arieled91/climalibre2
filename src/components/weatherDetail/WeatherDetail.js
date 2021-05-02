@@ -84,7 +84,7 @@ const WeatherDetail = ({weather, forecast}) => {
             <b>{nextRain ? nextRainMessage(nextRain) : message.noPrecipitations}</b>
           </div>}
         </div>
-        <div className={classes(styles.hideScrollbar, styles.forecastContainer)}>
+        <div className={classes(styles.hideScrollbar, styles.forecast)}>
           <TodayForecast weather={weather} forecasts={todayForecast}/>
         </div>
       </div>
