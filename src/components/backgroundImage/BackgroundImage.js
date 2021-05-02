@@ -47,7 +47,7 @@ const BackgroundImage = ({weather}) => {
     if (!weather) return null;
     const id = weather.weather[0].id;
     const code = ('' + id)[0];
-    const day = true;// isDayTimeWeather();
+    const day = isDayTimeWeather();
 
     switch (code) {
       case '2':
