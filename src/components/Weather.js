@@ -108,12 +108,12 @@ const Weather = () => {
   );
 };
 
-const Permission = {
+const Permission = Object.freeze({
   EMPTY: '',
   PROMPT: 'prompt',
   DENIED: 'denied',
   GRANTED: 'granted',
   ERROR: 'error'
-};
+});
 
 export default Weather;

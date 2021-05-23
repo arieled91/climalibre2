@@ -39,50 +39,45 @@ const BackgroundImage = ({weather}) => {
   const [image, setImage] = React.useState({min: '', full: ''});
   const [imageLoaded, setImageLoaded] = React.useState(false);
 
-  const isDayTimeWeather = React.useCallback(() => {
-    return isDayTime(weather);
-  }, [weather]);
-
-  const calculateImage = React.useCallback(() => {
-    if (!weather) return null;
-    const id = weather.weather[0].id;
-    const code = ('' + id)[0];
-    const day = isDayTimeWeather();
-
-    switch (code) {
-      case '2':
-        return {full: stormImg, min: stormImgMin};
-      case '3':
-        return day ? {full: drizzleImg, min: drizzleImgMin} : {full: drizzleNightImg, min: drizzleNightImgMin};
-      case '5':
-        return day ? {full: rainyImg, min: rainyImgMin} : {full: rainyNightImg, min: rainyNightImgMin};
-      case '6':
-        return day ? {full: snowImg, min: snowImgMin} : {full: snowNightImg, min: snowNightImgMin};
-      case '7':
-        return day ? {full: fogImg, min: fogImgMin} : {full: fogNightImg, min: fogNightImgMin};
-      case '8':
-        if (id === 800 || id === 801) {
-          return day ? {full: sunnyImg, min: sunnyImgMin} : {
-            full: clearSkyNightImg,
-            min: clearSkyNightImgMin
-          };
-        }
-        if (id === 802 || id === 803) {
-          return day ? {
-            full: cloudyImg,
-            min: cloudyImgMin
-          } : {full: cloudySkyNightImg, min: cloudySkyNightImgMin};
-        }
-        return day ? {full: coveredImg, min: coveredImgMin} : {full: coveredNightImg, min: coveredNightImgMin};
-      default:
-        return {full: cloudyImg, min: cloudyImgMin};
-    }
-  }, [isDayTimeWeather, weather]);
-
-
   React.useEffect(() => {
+    const calculateImage = () => {
+      if (!weather) return null;
+      const weatherId = weather.weather[0].id;
+      const weatherCode = ('' + weatherId)[0];
+      const isDay = isDayTime(weather);
+
+      switch (weatherCode) {
+        case '2':
+          return {full: stormImg, min: stormImgMin};
+        case '3':
+          return isDay ? {full: drizzleImg, min: drizzleImgMin} : {full: drizzleNightImg, min: drizzleNightImgMin};
+        case '5':
+          return isDay ? {full: rainyImg, min: rainyImgMin} : {full: rainyNightImg, min: rainyNightImgMin};
+        case '6':
+          return isDay ? {full: snowImg, min: snowImgMin} : {full: snowNightImg, min: snowNightImgMin};
+        case '7':
+          return isDay ? {full: fogImg, min: fogImgMin} : {full: fogNightImg, min: fogNightImgMin};
+        case '8':
+          if (weatherId === 800 || weatherId === 801) {
+            return isDay ? {full: sunnyImg, min: sunnyImgMin} : {
+              full: clearSkyNightImg,
+              min: clearSkyNightImgMin
+            };
+          }
+          if (weatherId === 802 || weatherId === 803) {
+            return isDay ? {
+              full: cloudyImg,
+              min: cloudyImgMin
+            } : {full: cloudySkyNightImg, min: cloudySkyNightImgMin};
+          }
+          return isDay ? {full: coveredImg, min: coveredImgMin} : {full: coveredNightImg, min: coveredNightImgMin};
+        default:
+          return {full: cloudyImg, min: cloudyImgMin};
+      }
+    };
+
     setImage(calculateImage());
-  }, [calculateImage, weather]);
+  }, [weather]);
 
   return (
     <div className={styles.container}>
