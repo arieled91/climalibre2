@@ -1,27 +1,32 @@
 .container{
     position: relative;
     height: 100%;
+    color: #ffffff;
+    text-shadow: 0 2px 3px rgba(0,0,0,0.8);
+    font-size: min(4.9vw, 22pt);
 }
 
-.weatherComponent {
-    color: #ffffff;
-    text-shadow: 0 2px 3px rgba(0,0,0,0.8),
-                 0 4px 13px rgba(0,0,0,0.2),
-                 0 4px 10px rgba(0,0,0,1);
+.mainComponent {
+    overflow: hidden;
+    padding: 15px 20px;
+    max-width: 500px;
+    margin: auto;
 }
 
 .description {
     text-transform: capitalize;
-    font-size: 18pt;
+    font-size: 1.5em;
+    margin-bottom: -10px;
 }
 
 .hideScrollbar::-webkit-scrollbar {
     display: none;
 }
 
-.date {
-    color: rgba(255,255,255,0.69);
-    padding-top: 20px;
+.mainWeather {
+    padding: 15px 0;
+    border-radius: 5px;
+    margin-bottom: 30px;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
@@ -49,40 +54,24 @@
     }
 }
 
-.currentWeather {
-    position: relative;
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    top: -17%;
+.details {
+    margin-top: 5px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding: 10px 0;
 }
 
-.item {
-   padding: 5px;
-}
-
-.address {
-    font-size: 10pt;
-    color: rgba(255,255,255,0.69);
-}
-
-.mainComponent {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    overflow: hidden;
+.details > div {
+    padding-top: 4px;
 }
 
 .temp {
     display: flex;
-    font-size: 55pt;
-    align-items: center;
+    font-size: 5em;
 }
 
 .bg{
     position: absolute;
+    filter: contrast(0.9) brightness(0.9);
     height: 100%;
     width: 100%;
     top: 0;

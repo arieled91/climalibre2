@@ -37,6 +37,10 @@
 
 .temp {
     position: relative;
-    padding: 4px;
     font-size: 16pt;
+}
+
+.time {
+    font-size: 0.7em;
+    text-align: center;
 }

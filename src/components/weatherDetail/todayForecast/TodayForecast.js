@@ -23,8 +23,8 @@ const TodayForecast = ({weather, forecasts}) => {
                 <strong>{fix(forecast.main.temp) + '°'}</strong>
               </span>
             </div>
-            <div>
-              <strong style={{fontSize: '9pt'}}>{getLocalTime(forecast.dt * 1000)}</strong>
+            <div className={styles.time}>
+              <strong>{getLocalTime(forecast.dt * 1000)}</strong>
             </div>
           </div>
         </Fragment>

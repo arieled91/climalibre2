@@ -12,6 +12,9 @@ const WeatherDetail = ({weather, forecast}) => {
   const [todayForecast, setTodayForecast] = React.useState([]);
   const [nextRain, setNextRain] = React.useState(null);
 
+  const dateOptions = {weekday: 'long', month: 'long', day: 'numeric'};
+  const dateTime = new Date().toLocaleString(message.locale, dateOptions);
+
   const tomorrow = () => {
     const hours24 = new Date();
     hours24.setHours(hours24.getHours()+24);
@@ -35,58 +38,55 @@ const WeatherDetail = ({weather, forecast}) => {
     return message.precipitations(nextRainForecast.weather[0].description, getLocalTime(nextRain.dt * 1000));
   };
 
-  const dateTime = () => {
-    const options = {weekday: 'long', month: 'long', day: 'numeric'};
-    return new Date().toLocaleString(message.locale, options);
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.bg}>
         <BackgroundImage weather={weather}/>
       </div>
 
+      <div className={styles.mainComponent}>
 
-      <div className={classes(styles.weatherComponent, styles.mainComponent)}>
-
-        <div className={styles.date}>{dateTime()}</div>
-
-        <div className={styles.currentWeather}>
-          <div className={classes(styles.item, styles.address)}>
-            {weather.name}
-          </div>
+        <div className={styles.mainWeather}>
+          <div>{dateTime}</div>
 
           <div className={styles.description}>
             <b>{weather.weather[0].description}</b>
           </div>
-
           <div className={styles.temp}>
             <WeatherIcon
               isDayTime={isDayTime(weather)}
               weatherCode={weather.weather[0].id}
               color="white"
             />
-            {fix(weather.main.temp) + '°C'}
+            <span>{fix(weather.main.temp) + '°C'}</span>
           </div>
+          {weather.weather[0].main !== 'Rain' && todayForecast.length > 0 && <div><b>
+            {nextRain ? nextRainMessage(nextRain) : message.noPrecipitations}
+          </b></div>}
+        </div>
 
-          <div className={styles.item}>
+        <div>
+          {weather.name}
+        </div>
+
+        <div className={styles.details}>
+          <div>
             {message.feelsLike}: <strong>{fix(weather.main.feels_like) + 'º'}</strong>
           </div>
-          <div className={styles.item}>
+          <div>
             {message.humidity}: <strong>{fix(weather.main.humidity) + '%'}</strong>
           </div>
-          <div className={styles.item}>
+          <div>
             {message.wind}: <strong>{
               fix(weather.wind.speed) + ' km/h ' + degreesToCardinal(weather.wind.deg)
             }</strong>
           </div>
-          {weather.weather[0].main !== 'Rain' && todayForecast.length > 0 && <div className={styles.item}>
-            <b>{nextRain ? nextRainMessage(nextRain) : message.noPrecipitations}</b>
-          </div>}
+
         </div>
-        <div className={classes(styles.hideScrollbar, styles.forecast)}>
-          <TodayForecast weather={weather} forecasts={todayForecast}/>
-        </div>
+
+      </div>
+      <div className={classes(styles.hideScrollbar, styles.forecast)}>
+        <TodayForecast weather={weather} forecasts={todayForecast}/>
       </div>
     </div>
   );
