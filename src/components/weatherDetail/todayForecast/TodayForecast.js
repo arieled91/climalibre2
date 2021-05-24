@@ -16,7 +16,7 @@ const TodayForecast = ({weather, forecasts}) => {
               <WeatherIcon
                 isDayTime={isDayTime(weather)}
                 weatherCode={forecast.weather[0].id}
-                size={30}
+                size={30 * 2} // avoid canvas pixelation
                 color="white"
               />
               <span className={styles.temp}>

@@ -69,6 +69,10 @@
     font-size: 5em;
 }
 
+.temp canvas{
+    width: 70px;
+}
+
 .bg{
     position: absolute;
     filter: contrast(0.9) brightness(0.9);

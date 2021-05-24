@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactAnimatedWeather from 'react-animated-weather';
 import PropTypes, {number} from 'prop-types';
+import styles from './WeatherIcon.module.css';
 
 const WeatherIcon = ({isDayTime = true, weatherCode, ...props}) => {
   const [icon, setIcon] = React.useState(null);
@@ -42,18 +43,16 @@ const WeatherIcon = ({isDayTime = true, weatherCode, ...props}) => {
   }, [weatherCode, isDayTime]);
 
   return (
-    <div>
-      {icon && <ReactAnimatedWeather id="canvas"
-        icon={icon}
-        {...props}
-      />}
+    <div className={styles.container} /* ref={canvasIcon}*/>
+      {icon && <ReactAnimatedWeather id="canvas" icon={icon} {...props}/>}
     </div>
   );
 };
 
 WeatherIcon.propTypes = {
   isDayTime: PropTypes.bool,
-  weatherCode: number
+  weatherCode: number,
+  size: number
 };
 
 export default WeatherIcon;

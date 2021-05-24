@@ -57,6 +57,7 @@ const WeatherDetail = ({weather, forecast}) => {
               isDayTime={isDayTime(weather)}
               weatherCode={weather.weather[0].id}
               color="white"
+              size={70 * 2} // avoid canvas pixelation
             />
             <span>{fix(weather.main.temp) + '°C'}</span>
           </div>
