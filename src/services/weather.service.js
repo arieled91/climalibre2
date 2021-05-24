@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-const URL = 'https://api.openweathermap.org/data/2.5';
-const WEATHER = URL + '/weather';
-const FORECAST = URL + '/forecast';
-const IP_LOCATION = 'https://ipapi.co/json';
+const {
+  REACT_APP_WEATHER: WEATHER,
+  REACT_APP_FORECAST: FORECAST,
+  REACT_APP_IP_LOCATION: IP_LOCATION,
+  REACT_APP_API_KEY: API_KEY
+} = process.env;
 
 const baseParams = {
-  appid: 'bb08096af050f2bd4c2b401249b14e27', // OWM API ID
+  appid: API_KEY, // OWM API ID
   units: 'metric'
 };
 

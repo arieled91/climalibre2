@@ -1,84 +1,113 @@
 .container{
-    position: relative;
-    height: 100%;
-    color: #ffffff;
-    text-shadow: 0 2px 3px rgba(0,0,0,0.8);
-    font-size: min(4.9vw, 22pt);
+  position: relative;
+  height: 100%;
+  color: #ffffff;
+  text-shadow: 0 2px 3px rgba(0,0,0,0.8);
+  font-size: min(5vw, 18pt);
+}
+
+@keyframes goRight {
+  0% {
+    margin-left: -100%;
+  }
+  50% {
+    left: -30%;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+@keyframes goUp {
+  0% {
+    margin-bottom: -100%;
+  }
+  50% {
+    margin-bottom: -30%;
+  }
+  100% {
+    margin-bottom: 0;
+  }
 }
 
 .mainComponent {
-    overflow: hidden;
-    padding: 15px 20px;
-    max-width: 500px;
-    margin: auto;
+  overflow: hidden;
+  padding: 15px 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.mainComponent * {
+  animation: goRight .5s;
 }
 
 .description {
-    text-transform: capitalize;
-    font-size: 1.5em;
-    margin-bottom: -10px;
+  text-transform: capitalize;
+  font-size: 1.5em;
+  margin-bottom: -10px;
 }
 
 .hideScrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .mainWeather {
-    padding: 15px 0;
-    border-radius: 5px;
-    margin-bottom: 30px;
+  padding: 15px 0;
+  border-radius: 5px;
+  margin-bottom: 30px;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hideScrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .forecast {
-    display: flex;
-    margin-top: 10px;
-    width: 100%;
-    overflow-x: auto;
-    bottom: 0;
-    position: absolute;
-    padding-bottom: 3px;
-    background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  overflow-x: auto;
+  bottom: 0;
+  position: absolute;
+  padding-bottom: 3px;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: goUp .5s;
 }
 
 /* apply backdrop-filter if browser supports it */
 @supports (backdrop-filter: none) {
-    .forecast {
-        backdrop-filter: blur(3px);
-        background: rgba(0, 0, 0, 0.1);
-    }
+  .forecast {
+    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.1);
+  }
 }
 
 .details {
-    margin-top: 5px;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    padding: 10px 0;
+  margin-top: 5px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 0;
 }
 
 .details > div {
-    padding-top: 4px;
+  padding-top: 4px;
 }
 
 .temp {
-    display: flex;
-    font-size: 5em;
+  display: flex;
+  font-size: 5em;
 }
 
 .temp canvas{
-    width: 70px;
+  width: 70px;
 }
 
 .bg{
-    position: absolute;
-    filter: contrast(0.9) brightness(0.9);
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
+  position: absolute;
+  filter: contrast(0.9) brightness(0.9);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }

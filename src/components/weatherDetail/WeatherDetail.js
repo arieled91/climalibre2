@@ -66,7 +66,7 @@ const WeatherDetail = ({weather, forecast}) => {
           </b></div>}
         </div>
 
-        <div>
+        <div className={styles.name}>
           {weather.name}
         </div>
 

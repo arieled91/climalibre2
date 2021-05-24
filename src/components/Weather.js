@@ -37,7 +37,6 @@ const Weather = () => {
 
   const populateByLocation = async () => {
     const position = await getPosition();
-
     if (position) {
       const weather = await findByCoords(position.coords.latitude, position.coords.longitude);
       setWeather(weather.weather);
