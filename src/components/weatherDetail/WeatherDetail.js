@@ -40,7 +40,7 @@ const WeatherDetail = ({weather, forecast}) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.bg}>
+      <div className={styles.background}>
         <BackgroundImage weather={weather}/>
       </div>
 

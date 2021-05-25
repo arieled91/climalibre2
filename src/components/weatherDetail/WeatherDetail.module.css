@@ -109,7 +109,7 @@
   width: 70px;
 }
 
-.bg{
+.background{
   position: absolute;
   filter: contrast(0.9) brightness(0.9);
   height: 100%;
@@ -119,6 +119,22 @@
   z-index: -1;
 }
 
+/* Mobile Landscape */
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+  .forecast {
+    position: relative;
+  }
+
+  .content {
+    overflow-y: auto;
+  }
+
+  .weather {
+    min-height: 100%;
+  }
+}
+
+/* Desktop */
 @media only screen and (min-width: 768px) {
   .weather {
     display: flex;
@@ -126,3 +142,4 @@
     padding: 30px;
   }
 }
+
