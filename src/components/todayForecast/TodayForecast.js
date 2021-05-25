@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react';
-import {fix, getLocalTime, isDayTime} from '../../../utils/Util';
+import {fix, getLocalTime, isDayTime} from '../../utils/Util';
 
 import styles from './TodayForecast.module.css';
 import WeatherIcon from '../weatherIcon/WeatherIcon';
-import {Weather} from '../../WeatherModel';
+import {Weather} from '../../domain/weather.model';
 import PropTypes from 'prop-types';
 
 const TodayForecast = ({weather, forecasts}) => {

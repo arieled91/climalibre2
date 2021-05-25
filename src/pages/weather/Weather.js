@@ -1,11 +1,11 @@
 import React from 'react';
 import Alert from '@material-ui/lab/Alert';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import message from '../localization/weather/WeatherLocal';
-import WeatherDetail from './weatherDetail/WeatherDetail';
+import message from '../../localization/weather/WeatherLocal';
+import WeatherDetail from '../../components/weatherDetail/WeatherDetail';
 import styles from './Weather.module.css';
-import {findByCity, findByCoords, getPosition} from '../handlers/weather.handler';
-import {getIpLocation} from '../services/weather.service';
+import {findByCity, findByCoords, getPosition} from '../../handlers/weather.handler';
+import {getIpLocation} from '../../services/weather.service';
 
 const Weather = () => {
   const [loading, setLoading] = React.useState(true);

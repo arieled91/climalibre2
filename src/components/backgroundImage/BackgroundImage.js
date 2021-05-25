@@ -33,7 +33,7 @@ import rainyNightImg from '../../assets/rainy-night.jpg';
 
 import styles from './BackgroundImage.module.css';
 import {classes, isDayTime} from '../../utils/Util';
-import {Weather} from '../WeatherModel';
+import {Weather} from '../../domain/weather.model';
 
 const BackgroundImage = ({weather}) => {
   const [image, setImage] = React.useState({min: '', full: ''});

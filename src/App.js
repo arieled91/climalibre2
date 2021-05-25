@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Weather from './components/Weather';
+import Weather from './pages/weather/Weather';
 import local from './localization/AppLocal';
 
 

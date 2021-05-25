@@ -1,6 +1,13 @@
 .container{
   position: relative;
   height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 1200px;
+  margin: auto;
+  height: 100%;
   color: #ffffff;
   text-shadow: 0 2px 3px rgba(0,0,0,0.8);
   font-size: min(5vw, 18pt);
@@ -30,14 +37,13 @@
   }
 }
 
-.mainComponent {
+.weather {
   overflow: hidden;
   padding: 15px 20px;
-  max-width: 500px;
   margin: auto;
 }
 
-.mainComponent * {
+.weather * {
   animation: goRight .5s;
 }
 
@@ -54,7 +60,6 @@
 .mainWeather {
   padding: 15px 0;
   border-radius: 5px;
-  margin-bottom: 30px;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
@@ -69,6 +74,7 @@
   width: 100%;
   overflow-x: auto;
   bottom: 0;
+  left: 0;
   position: absolute;
   padding-bottom: 3px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -81,6 +87,10 @@
     backdrop-filter: blur(3px);
     background: rgba(0, 0, 0, 0.1);
   }
+}
+
+.data {
+  margin-top: 30px;
 }
 
 .details {
@@ -110,4 +120,12 @@
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+@media only screen and (min-width: 768px) {
+  .weather {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+  }
 }
