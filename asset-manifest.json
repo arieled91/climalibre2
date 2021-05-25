@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/climalibre2/static/css/main.4f4d1db4.chunk.css",
-    "main.js": "/climalibre2/static/js/main.eec469ba.chunk.js",
-    "main.js.map": "/climalibre2/static/js/main.eec469ba.chunk.js.map",
+    "main.css": "/climalibre2/static/css/main.2fce5f6d.chunk.css",
+    "main.js": "/climalibre2/static/js/main.4d7878a6.chunk.js",
+    "main.js.map": "/climalibre2/static/js/main.4d7878a6.chunk.js.map",
     "runtime-main.js": "/climalibre2/static/js/runtime-main.d082b8d7.js",
     "runtime-main.js.map": "/climalibre2/static/js/runtime-main.d082b8d7.js.map",
     "static/css/2.bb6c9e10.chunk.css": "/climalibre2/static/css/2.bb6c9e10.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.8dfa13cf.chunk.js.map": "/climalibre2/static/js/2.8dfa13cf.chunk.js.map",
     "index.html": "/climalibre2/index.html",
     "static/css/2.bb6c9e10.chunk.css.map": "/climalibre2/static/css/2.bb6c9e10.chunk.css.map",
-    "static/css/main.4f4d1db4.chunk.css.map": "/climalibre2/static/css/main.4f4d1db4.chunk.css.map",
+    "static/css/main.2fce5f6d.chunk.css.map": "/climalibre2/static/css/main.2fce5f6d.chunk.css.map",
     "static/js/2.8dfa13cf.chunk.js.LICENSE.txt": "/climalibre2/static/js/2.8dfa13cf.chunk.js.LICENSE.txt",
     "static/media/clear-sky-night-min.7891b1f4.jpg": "/climalibre2/static/media/clear-sky-night-min.7891b1f4.jpg",
     "static/media/clear-sky-night.0e27e654.jpg": "/climalibre2/static/media/clear-sky-night.0e27e654.jpg",
@@ -48,7 +48,7 @@
     "static/js/runtime-main.d082b8d7.js",
     "static/css/2.bb6c9e10.chunk.css",
     "static/js/2.8dfa13cf.chunk.js",
-    "static/css/main.4f4d1db4.chunk.css",
-    "static/js/main.eec469ba.chunk.js"
+    "static/css/main.2fce5f6d.chunk.css",
+    "static/js/main.4d7878a6.chunk.js"
   ]
 }
