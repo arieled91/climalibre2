@@ -13,15 +13,12 @@
   font-size: min(5vw, 18pt);
 }
 
-@keyframes goRight {
+@keyframes fade {
   0% {
-    margin-left: -100%;
-  }
-  50% {
-    left: -30%;
+    opacity: 0;
   }
   100% {
-    margin-left: 0;
+    opacity: 1;
   }
 }
 
@@ -44,7 +41,7 @@
 }
 
 .weather * {
-  animation: goRight .5s;
+  animation: fade .5s;
 }
 
 .description {
